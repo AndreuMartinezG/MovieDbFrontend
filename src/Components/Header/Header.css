@@ -1,0 +1,40 @@
+.designHeader {
+
+    height: 4em;
+    background-color: #1A232E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: lightblue;
+}
+
+.headerSpace {
+    width: 33vw;
+    height: 4em;
+
+}
+
+.linksAuth {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.linksDesign {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    margin-right: 3em;
+
+}
+
+.link:hover {
+    font-weight: bold;
+    cursor:pointer;
+}
