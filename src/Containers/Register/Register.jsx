@@ -38,15 +38,14 @@ const Register = () => {
 
     //Handler (manejador)
     const rellenarDatos = (e) => {
-            setDatosUsuario({...datosUsuario, 
-                [e.target.name]: e.target.value})
+            setDatosUsuario({...datosUsuario, [e.target.name]: e.target.value})
     };
 
 
     //Funciones locales del componente
 
     const registrame = async () => {
-
+        /*
         //Array de distintos campos
 
         setMsgError("");
@@ -74,7 +73,7 @@ const Register = () => {
         };
 
         console.log("todo ha ido bien")
-
+        */
         //2construimos el body
 
         let body = {
