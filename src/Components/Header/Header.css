@@ -1,6 +1,7 @@
 .designHeader {
 
     height: 4em;
+    width: 100vw;
     background-color: #1A232E;
     display: flex;
     align-items: center;
@@ -10,7 +11,7 @@
 }
 
 .headerSpace {
-    width: 33vw;
+    width: 100vw;
     height: 4em;
 
 }
@@ -30,6 +31,9 @@
 }
 
 .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 3em;
 
 }
