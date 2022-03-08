@@ -56,7 +56,6 @@ const Header = (props) => {
                     <div className="link" onClick={() => navegar("/")}>Series</div>
                     <div className="link" onClick={() => navegar("/profile")}>Perfil</div>
                     <div className="link" onClick={() => navegar("/shopcart")}>Carrito</div>
-                    
                 </div>
 
                 <div className="headerSpace linksAuth">
