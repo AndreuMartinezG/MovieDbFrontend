@@ -7,7 +7,7 @@ const Profile = () => {
 
     return (
         <div className="designProfile">
-            Soy Register    
+            Soy Profile    
         </div>
     )
 

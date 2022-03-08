@@ -7,6 +7,8 @@ import Login from './Containers/Login/Login';
 import Register from './Containers/Register/Register';
 import Profile from './Containers/Profile/Profile';
 import Admin from './Containers/Admin/Admin';
+import Peliculas from './Containers/Peliculas/Peliculas';
+import ShopCart from './Containers/ShopCart/ShopCart';
 
 
 
@@ -24,6 +26,8 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/admin' element={<Admin/>} />
+          <Route path='/peliculas' element={<Peliculas /> } />
+          <Route path='/shopcart' element={<ShopCart />} />
         </Routes>
 
         <Footer />
