@@ -59,9 +59,8 @@ const Header = (props) => {
                 </div>
 
                 <div className="headerSpace linksAuth">
-                    <div className="link" onClick={() => navegar("/profile")}>Admin</div>
+                    <div className="link" onClick={() => navegar("/admin")}>Admin</div>
                     <div className="link" onClick={() => logOut()}>LogOut</div>
-                    
                 </div>
             </div>
         )

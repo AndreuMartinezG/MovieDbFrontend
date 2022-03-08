@@ -6,6 +6,7 @@ import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login';
 import Register from './Containers/Register/Register';
 import Profile from './Containers/Profile/Profile';
+import Admin from './Containers/Admin/Admin';
 
 
 
@@ -22,7 +23,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/profile' element={<Profile />} />
-
+          <Route path='/admin' element={<Admin/>} />
         </Routes>
 
         <Footer />
