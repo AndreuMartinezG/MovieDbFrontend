@@ -1,0 +1,39 @@
+.SideBar {
+    background-color: thistle;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #555
+}
+
+.color {
+    background-color: lightgray;
+}
+
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.bt-lateral {
+    height: 2em;
+    width: auto;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5em;
+    border: 1px #555 solid;
+}
+
+.titulo-lateral {
+    margin-bottom: 3em;
+    font-style:oblique;
+    
+}
