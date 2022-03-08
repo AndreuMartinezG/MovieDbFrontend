@@ -7,7 +7,7 @@ const Peliculas = () => {
 
     return (
         <div className="designPeliculas">
-            Soy peliculas
+            Soy peliculass
         </div>
     )
 }
