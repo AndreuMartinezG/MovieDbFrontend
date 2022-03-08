@@ -32,6 +32,7 @@ const Header = (props) => {
     }
 
     if (!props.credentials?.token) {
+
         return (
             <div className='designHeader'>
                 <div className="headerSpace linksDesign">
@@ -44,7 +45,29 @@ const Header = (props) => {
                 </div>
             </div>
         )
+
+    } else if (props.credentials?.token && props.credentials?.usuario.rol === true) {
+
+        return (
+            <div className='designHeader'>
+                <div className="headerSpace linksDesign">
+                    <div className="link" onClick={() => navegar("/")}>Home</div>
+                    <div className="link" onClick={() => navegar("/")}>Peliculas</div>
+                    <div className="link" onClick={() => navegar("/")}>Series</div>
+                    <div className="link" onClick={() => navegar("/profile")}>Perfil</div>
+                    
+                </div>
+
+                <div className="headerSpace linksAuth">
+                    <div className="link" onClick={() => navegar("/profile")}>Admin</div>
+                    <div className="link" onClick={() => logOut()}>LogOut</div>
+                    
+                </div>
+            </div>
+        )
+
     } else {
+
         return (
             <div className='designHeader'>
                 <div className="headerSpace linksDesign">
