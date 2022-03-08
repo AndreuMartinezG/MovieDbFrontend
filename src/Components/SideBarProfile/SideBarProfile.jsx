@@ -20,7 +20,7 @@ function SideBarProfile() {
 
     return (
         <>
-            <Drawer 
+            <Drawer
                 className='sideBar'
                 opened={opened}
                 onClose={() => setOpened(false)}
@@ -30,7 +30,7 @@ function SideBarProfile() {
                 position='left'
             >
 
-                <h1 className='titulo-lateral' > Opciones: <hr/></h1>
+                <h1 className='titulo-lateral' > Opciones: <hr /></h1>
                 <div className="flexSide">
                     <div className='bt-lateral' onClick={() => navegar("/pedidos")}>Pedidos </div>
                     <div className='bt-lateral' onClick={() => navegar("/datosPerfil")}>Datos de Perfil</div>
@@ -41,7 +41,13 @@ function SideBarProfile() {
 
             </Drawer>
 
-            <Burger opened={opened} onClick={() => setOpened(true)}>Open Drawer</Burger>
+            <Burger
+                opened={opened}
+                onClick={() => setOpened(true)}
+                size= "xl"
+                color="#45f50d" 
+            >
+                Open Drawer</Burger>
         </>
     );
 }

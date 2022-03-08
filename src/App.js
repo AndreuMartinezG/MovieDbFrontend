@@ -10,6 +10,7 @@ import Admin from './Containers/Admin/Admin';
 import Peliculas from './Containers/Peliculas/Peliculas';
 import ShopCart from './Containers/ShopCart/ShopCart';
 import Pedidos from './Containers/Pedidos/Pedidos';
+import DatosPerfil from './Containers/DatosPerfil/DatosPerfil';
 
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route path='/peliculas' element={<Peliculas /> } />
           <Route path='/shopcart' element={<ShopCart />} />
           <Route path='/pedidos' element={<Pedidos />} />
+          <Route path='/datosPerfil' element={<DatosPerfil />} />
         </Routes>
 
         <Footer />
