@@ -29,6 +29,14 @@ const Login = (props) => {
         setDatosUsuario({ ...datosUsuario, [e.target.name]: e.target.value })
     };
 
+
+
+    useEffect(() => {
+        if (props.credentials?.token) {
+            navigate("/");
+        }
+    })
+
     const login = async () => {
 
         try {
@@ -64,6 +72,8 @@ const Login = (props) => {
 
         }
     }
+
+
     return (
         <div className="designLogin">
             {<pre>{JSON.stringify(datosUsuario, null, 2)}</pre>}
@@ -79,4 +89,6 @@ const Login = (props) => {
     )
 }
 
-export default connect()(Login);
+export default connect((state) => ({
+    credentials: state.credentials
+}))(Login);
