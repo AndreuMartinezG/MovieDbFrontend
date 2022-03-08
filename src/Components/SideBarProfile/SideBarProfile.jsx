@@ -34,7 +34,7 @@ function SideBarProfile() {
                 <div className="flexSide">
                     <div className='bt-lateral' onClick={() => navegar("/pedidos")}>Pedidos </div>
                     <div className='bt-lateral' onClick={() => navegar("/datosPerfil")}>Datos de Perfil</div>
-                    <div className='bt-lateral' onClick={() => navegar("/")}>Modificar Perfil</div>
+                    <div className='bt-lateral' onClick={() => navegar("/modificarPerfil")}>Modificar Perfil</div>
                     <div className='bt-lateral' onClick={() => navegar("/peliculas")}>Buscar Peliculas</div>
                 </div>
 
