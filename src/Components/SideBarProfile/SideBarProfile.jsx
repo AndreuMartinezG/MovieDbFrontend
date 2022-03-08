@@ -26,14 +26,14 @@ function SideBarProfile() {
                 onClose={() => setOpened(false)}
                 title=""
                 padding="xl"
-                size="20vw"
+                size="20wh"
                 position='left'
             >
 
                 <h1 className='titulo-lateral' > Opciones: <hr/></h1>
                 <div className="flexSide">
-                    <div className='bt-lateral' onClick={() => navegar("/profile")}>Pedidos </div>
-                    <div className='bt-lateral' onClick={() => navegar("/")}>Datos de Perfil</div>
+                    <div className='bt-lateral' onClick={() => navegar("/pedidos")}>Pedidos </div>
+                    <div className='bt-lateral' onClick={() => navegar("/datosPerfil")}>Datos de Perfil</div>
                     <div className='bt-lateral' onClick={() => navegar("/")}>Modificar Perfil</div>
                     <div className='bt-lateral' onClick={() => navegar("/peliculas")}>Buscar Peliculas</div>
                 </div>

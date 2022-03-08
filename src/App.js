@@ -9,6 +9,7 @@ import Profile from './Containers/Profile/Profile';
 import Admin from './Containers/Admin/Admin';
 import Peliculas from './Containers/Peliculas/Peliculas';
 import ShopCart from './Containers/ShopCart/ShopCart';
+import Pedidos from './Containers/Pedidos/Pedidos';
 
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path='/admin' element={<Admin/>} />
           <Route path='/peliculas' element={<Peliculas /> } />
           <Route path='/shopcart' element={<ShopCart />} />
+          <Route path='/pedidos' element={<Pedidos />} />
         </Routes>
 
         <Footer />
