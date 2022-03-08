@@ -11,6 +11,7 @@ import Peliculas from './Containers/Peliculas/Peliculas';
 import ShopCart from './Containers/ShopCart/ShopCart';
 import Pedidos from './Containers/Pedidos/Pedidos';
 import DatosPerfil from './Containers/DatosPerfil/DatosPerfil';
+import ModificarPerfil from './Containers/ModificarPerfil/ModificarPerfil';
 
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route path='/shopcart' element={<ShopCart />} />
           <Route path='/pedidos' element={<Pedidos />} />
           <Route path='/datosPerfil' element={<DatosPerfil />} />
+          <Route path='/modificarPerfil' element={<ModificarPerfil />} />
         </Routes>
 
         <Footer />
