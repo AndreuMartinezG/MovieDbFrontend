@@ -20,20 +20,24 @@ function SideBarProfile() {
 
     return (
         <>
-            <Drawer
+            <Drawer 
+                className='sideBar'
                 opened={opened}
                 onClose={() => setOpened(false)}
                 title=""
                 padding="xl"
-                size="50vw"
+                size="20vw"
                 position='left'
             >
 
-                <h1 className='titulo-lateral' >Opciones:</h1>
-                <div className='bt-lateral' onClick={() => navegar("/")}>Tus Datos de Perfil</div>
-                <div className='bt-lateral'>item 2</div>
-                <div className='bt-lateral'>item 3</div>
-                <div className='bt-lateral'>item 4</div>
+                <h1 className='titulo-lateral' > Opciones: <hr/></h1>
+                <div className="flexSide">
+                    <div className='bt-lateral' onClick={() => navegar("/profile")}>Pedidos </div>
+                    <div className='bt-lateral' onClick={() => navegar("/")}>Datos de Perfil</div>
+                    <div className='bt-lateral' onClick={() => navegar("/")}>Modificar Perfil</div>
+                    <div className='bt-lateral' onClick={() => navegar("/peliculas")}>Buscar Peliculas</div>
+                </div>
+
 
             </Drawer>
 
