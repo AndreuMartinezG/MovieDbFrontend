@@ -1,0 +1,10 @@
+.designRooster {
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+
+.designRooster>*{
+    flex-basis: 25%;
+}
