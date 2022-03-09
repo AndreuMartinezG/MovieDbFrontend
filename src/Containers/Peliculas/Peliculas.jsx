@@ -10,7 +10,7 @@ import './Peliculas.css'
 
 const Peliculas = (props) => {
 
-
+    const key = '210d6a5dd3f16419ce349c9f1b200d6d'
     let navigate = useNavigate();
 
     //HOOKS
@@ -44,7 +44,7 @@ const Peliculas = (props) => {
 
         try {
 
-            let res = await axios.get("https://movie-db-geekshubs.herokuapp.com/peliculas/novedades", config);
+            let res = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=1`, config);
 
             setTimeout(()=>{
 
