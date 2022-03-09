@@ -16,7 +16,7 @@ const Login = (props) => {
 
     //1-Hooks (equivalen al estado en los componentes de clase)
     const [datosUsuario, setDatosUsuario] = useState({ email: "", password: "" });
-    const [msgError, setMsgError] = useState("");
+    const [msgError, /*setMsgError*/] = useState("");
     const [msgError2, setMsgError2] = useState("");
 
 

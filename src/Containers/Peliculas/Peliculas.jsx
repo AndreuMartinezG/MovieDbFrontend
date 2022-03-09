@@ -52,7 +52,7 @@ const Peliculas = (props) => {
     };
 
 
-    if(films[0]?.id != undefined){
+    if(films[0]?.id !== undefined){
         return(
             <div className="designRooster">
 

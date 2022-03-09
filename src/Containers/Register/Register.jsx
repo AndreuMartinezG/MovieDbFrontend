@@ -4,7 +4,6 @@ import axios from 'axios';
 import './Register.css';
 
 import { connect } from 'react-redux';
-import { LOGIN } from '../../redux/types';
 
 const Register = (props) => {
 
@@ -19,7 +18,7 @@ const Register = (props) => {
         numCuenta: ""
     });
 
-    const [msgError, setMsgError] = useState("");
+    const [msgError, /*setMsgError*/] = useState("");
 
     //useEffect
 

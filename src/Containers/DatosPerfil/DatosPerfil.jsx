@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import './DatosPerfil.css'
 import SideBarProfile from "../../Components/SideBarProfile/SideBarProfile";
 import { useNavigate } from 'react-router-dom';
