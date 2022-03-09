@@ -74,7 +74,7 @@ const Peliculas = (props) => {
 
     if(films[0]?.id !== undefined){
         return(
-            <div className="designRooster">
+            <div className='designPeliculas'>
 
                 {
                     
@@ -92,7 +92,7 @@ const Peliculas = (props) => {
         )
     }else{
         return (
-            <div className='designHome'>
+            <div className='designPeliculas'>
                 <div className="marginLoader">
                     <img src={require('../../img/loader.gif')} alt="cargador"/>
                 </div>

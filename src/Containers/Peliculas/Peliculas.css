@@ -1,10 +1,10 @@
-.designRooster {
+.designPeliculas {
     display: flex;
     flex-wrap: wrap;
 
 
 }
 
-.designRooster>*{
+.designPeliculas>*{
     flex-basis: 25%;
 }
