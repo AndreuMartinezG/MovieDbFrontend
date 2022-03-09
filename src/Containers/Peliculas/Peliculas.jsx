@@ -1,11 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {raiz} from '../../utiles';
+import { raiz } from '../../utiles';
 import { MOVIE_DETAIL } from '../../redux/types';
 import { connect } from 'react-redux';
-
 import './Peliculas.css'
+import { Typography, Row, Button } from 'antd';
+
+const { Title } = Typography;
+
+
 
 
 const Peliculas = (props) => {
@@ -18,9 +22,9 @@ const Peliculas = (props) => {
 
 
     //useEffect
-    useEffect(()=>{
+    useEffect(() => {
         traePelis();
-    },[]);
+    }, []);
 
     useEffect(() => {
         if (props.credentials.token === '') {
@@ -28,10 +32,10 @@ const Peliculas = (props) => {
         }
     })
 
-    useEffect(()=>{
+    useEffect(() => {
         //espera a cambio en el HOOK de films
-    },[films]);
-   
+    }, [films]);
+
 
 
     // FUNCIONES LOCALES
@@ -46,10 +50,10 @@ const Peliculas = (props) => {
 
             let res = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=1`, config);
 
-            setTimeout(()=>{
+            setTimeout(() => {
 
                 setFilms(res.data.results);
-            },2000);
+            }, 2000);
 
         } catch (error) {
             console.log(error);
@@ -58,10 +62,10 @@ const Peliculas = (props) => {
 
 
     const escogePelicula = (pelicula) => {
-        
+
         console.log(pelicula);
         //Guardamos la pelicula escogida en redux
-        props.dispatch({type:MOVIE_DETAIL, payload: pelicula});
+        props.dispatch({ type: MOVIE_DETAIL, payload: pelicula });
 
 
         //Redirigimos a movieDetail con navigate
@@ -72,29 +76,58 @@ const Peliculas = (props) => {
 
     // RENDER
 
-    if(films[0]?.id !== undefined){
-        return(
+    if (films[0]?.id !== undefined) {
+        return (
             <div className='designPeliculas'>
+                {/*APARTADO PARA LA IMAGEN DE CABECERA */}
 
-                {
-                    
-                    films.map(pelicula => {
+                <div className="imgCabezera">
 
-                        return (
-                            <div key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
-                                <img src={raiz + pelicula.poster_path} alt={pelicula.title}/>
-                            </div>
-                        )
-                    })
-                }
-                
+                </div>
+
+                <div>
+                    <div className="tituloNovedades">
+                        <Title style={{ color: 'white' }} level={2}>Titulo</Title>
+                        <p style={{ color: 'white', fontSize: '1rem' }}>Textoo</p>
+                    </div>
+                </div>
+
+                {/*BODY*/}
+
+                <div className="bodyNovedades">
+                    <Title level={2}>Novedades</Title>
+                    <hr />
+
+
+                    {/* GRID CARDS */}
+
+                    <Row gutter={[16, 16]}>
+                        {
+
+                            films.map(pelicula => {
+
+                                return (
+                                    <div className='mostrarImg' key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
+                                        <img src={raiz + pelicula.poster_path} alt={pelicula.title} />
+                                    </div>
+                                )
+                            })
+                        }
+                    </Row>
+
+                </div>
+
+
+                <div className="botonMasNovedades">
+                    <button>LOAD MORE</button>
+                </div>
             </div>
         )
-    }else{
+    } else {
         return (
             <div className='designPeliculas'>
                 <div className="marginLoader">
-                    <img src={require('../../img/loader.gif')} alt="cargador"/>
+                    <img src={require('../../img/loader.gif')} alt="cargador" />
                 </div>
             </div>
         )
