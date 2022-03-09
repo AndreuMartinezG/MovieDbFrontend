@@ -18,6 +18,7 @@ const DetallesPelicula = (props) => {
         }
     });
 
+    
     return (
         <div className="designDetallesPelicula">
             <div className="filmDetailHalf">
