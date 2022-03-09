@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {raiz} from '../../utiles';
+import { MOVIE_DETAIL } from '../../redux/types';
 import { connect } from 'react-redux';
 
 import './Peliculas.css'
@@ -31,6 +32,10 @@ const Peliculas = (props) => {
         //espera a cambio en el HOOK de films
     },[films]);
    
+
+
+    // FUNCIONES LOCALES
+
     const traePelis = async () => {
 
         let config = {
@@ -52,6 +57,21 @@ const Peliculas = (props) => {
     };
 
 
+    const escogePelicula = (pelicula) => {
+        
+        console.log(pelicula);
+        //Guardamos la pelicula escogida en redux
+        props.dispatch({type:MOVIE_DETAIL, payload: pelicula});
+
+
+        //Redirigimos a movieDetail con navigate
+        navigate("/detallespelicula");
+    }
+
+
+
+    // RENDER
+
     if(films[0]?.id !== undefined){
         return(
             <div className="designRooster">
@@ -61,7 +81,7 @@ const Peliculas = (props) => {
                     films.map(pelicula => {
 
                         return (
-                            <div key={pelicula.id} /*onClick={()=>escogePelicula(pelicula)}*/>
+                            <div key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
                                 <img src={raiz + pelicula.poster_path} alt={pelicula.title}/>
                             </div>
                         )
