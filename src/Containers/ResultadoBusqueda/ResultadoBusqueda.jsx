@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { raiz, key } from '../../utiles';
+import { raiz} from '../../utiles';
 import { MOVIE_DETAIL } from '../../redux/types';
 import { connect } from 'react-redux';
 import './ResultadoBusqueda.css'
-import { Typography, Row, Button } from 'antd';
+import { Typography, Row } from 'antd';
 
 const { Title } = Typography;
 
@@ -25,7 +25,7 @@ const ResultadoBusqueda = (props) => {
 
 
 
-
+    
     const escogePelicula = (pelicula) => {
 
         console.log(pelicula);
@@ -37,11 +37,11 @@ const ResultadoBusqueda = (props) => {
         navigate("/detallespelicula");
     }
 
-
+    console.log(props.films)
 
     // RENDER
 
-    if (films[0]?.id !== undefined) {
+    if (props.films.results[0]?.id !== undefined) {
         return (
             <div className='designPeliculas'>
                 {/*APARTADO PARA LA IMAGEN DE CABECERA */}
@@ -60,16 +60,15 @@ const ResultadoBusqueda = (props) => {
                 {/*BODY*/}
 
                 <div className="bodyNovedades">
-                    <Title level={2}>Novedades</Title>
+                    <Title level={2}>Resultados Busqueda!</Title>
                     <hr />
 
 
                     {/* GRID CARDS */}
 
-                    <Row gutter={[16, 16]}>
                         {
 
-                            films.map(pelicula => {
+                            props.films.results.map(pelicula => {
 
                                 return (
                                     <div className='mostrarImg' key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
@@ -78,7 +77,6 @@ const ResultadoBusqueda = (props) => {
                                 )
                             })
                         }
-                    </Row>
 
                 </div>
 
@@ -104,5 +102,6 @@ const ResultadoBusqueda = (props) => {
 
 
 export default connect((state) => ({
-    credentials: state.credentials
+    credentials: state.credentials,
+    films: state.search.peliculas
 }))(ResultadoBusqueda);

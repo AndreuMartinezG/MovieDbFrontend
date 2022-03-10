@@ -39,5 +39,5 @@ const DetallesPelicula = (props) => {
 
 export default connect((state) => ({
     credentials: state.credentials,
-    search: state.search
+    search: state.search.film
 }))(DetallesPelicula);

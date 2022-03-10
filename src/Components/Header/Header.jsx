@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { LOGOUT } from '../../redux/types';
+import { LOGOUT, MOVIES_TITLE } from '../../redux/types';
 import {connect} from 'react-redux';
 import 'antd/dist/antd.css';
 import { Input, Button } from 'antd';
@@ -16,9 +16,6 @@ const Header = (props) => {
 
     const [titulo, setTitulo] = useState("");
 
-    useEffect(()=>{
-        console.log(props.credentials);
-    })
 
     const navegar = (lugar) => {
 
@@ -50,9 +47,10 @@ const Header = (props) => {
         try {
             let resultados = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=${titulo}&page=1&include_adult=false`);
 
+            console.log(resultados)
             //Guardo en redux los resultados de las películas
 
-            //props.dispatch({type: MOVIES_TITLE, payload: resultados.data});
+            props.dispatch({type: MOVIES_TITLE, payload: resultados.data});
 
             setTimeout(()=>{
                 navigate("/resultadobusqueda");
