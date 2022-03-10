@@ -1,0 +1,44 @@
+.designPeliculas {
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+
+.mostrarImg{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 25%;
+}
+
+.imgCabezera {
+    height: 31.25em;
+    width: 100vw;
+    background-color: #181818;
+    background-size: 100%, cover;
+    background-position: center, center;
+    margin-top: 1em;
+    position: relative;
+}
+
+.tituloNovedades {
+    position: absolute;
+    max-width: 31.25em;
+    bottom: 2rem;
+    margin-left: 2rem;
+    color: aliceblue;
+    justify-content: flex-end;
+}
+
+.bodyNovedades {
+    width: 85%;
+    margin: 1rem auto;
+}
+
+.botonMasNovedades{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin: 1em;
+}

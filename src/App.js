@@ -13,6 +13,7 @@ import Pedidos from './Containers/Pedidos/Pedidos';
 import DatosPerfil from './Containers/DatosPerfil/DatosPerfil';
 import ModificarPerfil from './Containers/ModificarPerfil/ModificarPerfil';
 import DetallesPelicula from './Containers/DetallesPelicula/DetallesPelicula';
+import ResultadoBusqueda from './Containers/ResultadoBusqueda/ResultadoBusqueda';
 
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route path='/datosPerfil' element={<DatosPerfil />} />
           <Route path='/modificarPerfil' element={<ModificarPerfil />} />
           <Route path='/detallespelicula' element={<DetallesPelicula />} />
+          <Route path='/resultadobusqueda' element={<ResultadoBusqueda />} />
         </Routes>
 
         <Footer />

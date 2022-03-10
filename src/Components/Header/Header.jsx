@@ -55,7 +55,7 @@ const Header = (props) => {
             //props.dispatch({type: MOVIES_TITLE, payload: resultados.data});
 
             setTimeout(()=>{
-                navigate("/searchresults");
+                navigate("/resultadobusqueda");
             },500);
 
 
