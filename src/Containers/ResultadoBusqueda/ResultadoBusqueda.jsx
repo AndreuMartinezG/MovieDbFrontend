@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { raiz, key } from '../../utiles';
 import { MOVIE_DETAIL } from '../../redux/types';
 import { connect } from 'react-redux';
-import './Peliculas.css'
+import './ResultadoBusqueda.css'
 import { Typography, Row, Button } from 'antd';
 
 const { Title } = Typography;
@@ -16,14 +15,7 @@ const ResultadoBusqueda = (props) => {
 
     let navigate = useNavigate();
 
-    //HOOKS
-    const [films, setFilms] = useState([]);
 
-
-    //useEffect
-    useEffect(() => {
-        traePelis();
-    }, []);
 
     useEffect(() => {
         if (props.credentials.token === '') {
@@ -31,33 +23,7 @@ const ResultadoBusqueda = (props) => {
         }
     })
 
-    useEffect(() => {
-        //espera a cambio en el HOOK de films
-    }, [films]);
 
-
-
-    // FUNCIONES LOCALES
-
-    const traePelis = async () => {
-
-        let config = {
-            headers: { Authorization: `Bearer ${props.credentials.token}` }
-        };
-
-        try {
-
-            let res = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=1`, config);
-
-            setTimeout(() => {
-
-                setFilms(res.data.results);
-            }, 2000);
-
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
 
     const escogePelicula = (pelicula) => {

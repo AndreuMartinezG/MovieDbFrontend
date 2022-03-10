@@ -1,8 +1,6 @@
 .designPeliculas {
     display: flex;
     flex-wrap: wrap;
-
-
 }
 
 .mostrarImg{
