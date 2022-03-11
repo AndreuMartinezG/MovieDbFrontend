@@ -16,6 +16,9 @@
 
 }
 
+.searchSpace {
+    margin-top: 1.5em;
+}
 .linksAuth {
     display: flex;
     flex-direction: row;

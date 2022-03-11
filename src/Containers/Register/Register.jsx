@@ -99,7 +99,7 @@ const Register = (props) => {
 
             setTimeout(() => {
                 navigate("/login");
-            }, 1000);
+            }, 500);
 
 
 
