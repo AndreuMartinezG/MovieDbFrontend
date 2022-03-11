@@ -23,14 +23,11 @@ const Login = (props) => {
 
     //Funciones handlers
     const rellenarDatos = (e) => {
-        //Funcion handler que setea los datos en el hook...[e.target.name] obtiene 
-        //el nombre de la propiedad a cambiar, e.target.value tiene el valor..ambos
-        //obtienen los datos del evento, que es el hecho de escribir en un input en concreto
         setDatosUsuario({ ...datosUsuario, [e.target.name]: e.target.value })
     };
 
 
-
+    
     useEffect(() => {
         if (props.credentials?.token) {
             navigate("/");

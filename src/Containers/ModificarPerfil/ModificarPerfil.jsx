@@ -80,8 +80,7 @@ const ModificarPerfil = (props) => {
                 </div>
             </div>
             <div className="designProfileHalf profileRight">
-                <div className="updateBoton" onClick={()=>updateUser()}>Update</div>  
-             
+                <div className="updateBoton" onClick={()=>updateUser()}>Update</div>
             </div>
         </div>
     )
