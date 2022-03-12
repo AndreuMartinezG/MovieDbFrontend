@@ -101,7 +101,6 @@ const Peliculas = (props) => {
 
                     <Row gutter={[16, 16]}>
                         {
-
                             films.map((pelicula, index) => {
 
                                 return (
@@ -116,8 +115,6 @@ const Peliculas = (props) => {
                                         />
                                     </React.Fragment>
                                 )
-
-
                             })
                         }
                     </Row>
