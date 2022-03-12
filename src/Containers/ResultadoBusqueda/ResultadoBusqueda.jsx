@@ -63,7 +63,10 @@ const ResultadoBusqueda = (props) => {
                         backgroundPosition: 'center, center',
                         width: '100%',
                         position: 'relative',
-                        marginTop: '1em'
+                        marginTop: '1em',
+                        marginLeft: '1em',
+                        marginRight: '1em'
+                        
                     }}
                 >
                     <div>
