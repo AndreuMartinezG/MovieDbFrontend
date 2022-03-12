@@ -124,7 +124,7 @@ const Peliculas = (props) => {
                 
                 <div className="botonMasNovedades">
                     
-                    <button onClick={() => masPelis()}>{LoadingMore && "LOAD MORE"}{Loading && "Loading..."}</button>
+                    <button className='searchMore' onClick={() => masPelis()}>{LoadingMore && "LOAD MORE"}{Loading && "Loading..."}</button>
                 </div>
             </div>
         )

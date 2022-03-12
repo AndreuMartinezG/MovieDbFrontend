@@ -89,7 +89,7 @@ const Register = (props) => {
             numCuenta: datosUsuario.numCuenta
         }
 
-        console.log("le llaman BODY", body);
+        console.log("Esto es el body del registro", body);
         //3 envio de axios
 
         try {

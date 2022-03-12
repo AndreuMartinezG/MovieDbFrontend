@@ -1,7 +1,7 @@
 import React from 'react';
 import { MOVIE_DETAIL } from '../../redux/types';
 import { Col } from 'antd';
-
+import './GridCard.css'
 import { connect } from 'react-redux';
 
 function GridCards(props) {

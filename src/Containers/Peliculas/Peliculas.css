@@ -27,3 +27,16 @@
     justify-content: center;
     align-items: center;
 }
+
+.searchMore {
+    transform: scale(1);
+    transition: .5s;
+    border-radius: 2em;
+    background-color: #505050;
+    color: lightgray;
+}
+
+.searchMore:hover {
+    transform: scale(1.1);
+    transition: .5s;
+}
