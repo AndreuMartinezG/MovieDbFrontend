@@ -69,10 +69,9 @@ const ResultadoBusqueda = (props) => {
 
                                 return (
                                     <React.Fragment key={index}>
-                                        {console.log(pelicula)}
                                         <GridCard
                                             objetoPeli={pelicula}
-                                            image={raiz + pelicula.poster_path}
+                                            image={pelicula.poster_path ? `${raiz + pelicula.poster_path}` : null}
                                             movieId={pelicula.id}
                                             movieName={pelicula.title}
                                             keyPeli={pelicula.id}

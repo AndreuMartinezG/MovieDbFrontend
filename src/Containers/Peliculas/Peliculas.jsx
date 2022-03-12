@@ -20,11 +20,15 @@ const Peliculas = (props) => {
 
     //HOOKS
     const [films, setFilms] = useState([]);
+    const [Loading, setLoading] = useState(true)
+    const [LoadingMore, setLoadingMore] = useState(false)
+    const [CurrentPage, setCurrentPage] = useState(0)
 
 
     //useEffect
     useEffect(() => {
-        traePelis();
+        const endpoint = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+        traePelis(endpoint);
     }, []);
 
     useEffect(() => {
@@ -37,11 +41,15 @@ const Peliculas = (props) => {
         //espera a cambio en el HOOK de films
     }, [films]);
 
+    useEffect(() => {
+
+    }, [CurrentPage]);
+
 
 
     // FUNCIONES LOCALES
 
-    const traePelis = async () => {
+    const traePelis = async (path) => {
 
         let config = {
             headers: { Authorization: `Bearer ${props.credentials.token}` }
@@ -49,11 +57,15 @@ const Peliculas = (props) => {
 
         try {
 
-            let res = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`, config);
+            let res = await axios.get(path, config);
+            console.log(res.data.page)
 
             setTimeout(() => {
-
-                setFilms(res.data.results);
+                //console.log(res.data.results + "estoy aqui")
+                setFilms([...films, ...res.data.results]);
+                setCurrentPage(res.data.page)
+                setLoading(false)
+                setLoadingMore(true)
             }, 2000);
 
         } catch (error) {
@@ -61,14 +73,19 @@ const Peliculas = (props) => {
         }
     };
 
+    const masPelis = async () => {
+        const endpoint = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`
+        traePelis(endpoint)
+        setLoading(true)
+        setLoadingMore(false)
+    }
+
     // RENDER
 
     if (films[0]?.id !== undefined) {
         return (
             <div className='designPeliculas'>
-                {console.log(films)}
                 {/*APARTADO PARA LA IMAGEN DE CABECERA */}
-
                 <MainImage
                     image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${films[0].backdrop_path}`}
                     title={films[0].original_title}
@@ -90,10 +107,9 @@ const Peliculas = (props) => {
 
                                 return (
                                     <React.Fragment key={index}>
-                                        {console.log(pelicula)}
                                         <GridCard
-                                            objetoPeli = {pelicula}
-                                            image={raiz + pelicula.poster_path}
+                                            objetoPeli={pelicula}
+                                            image={pelicula.poster_path ? `${raiz + pelicula.poster_path}` : null}
                                             movieId={pelicula.id}
                                             movieName={pelicula.title}
                                             keyPeli={pelicula.id}
@@ -105,15 +121,16 @@ const Peliculas = (props) => {
                     </Row>
 
                 </div>
-
+                
                 <div className="botonMasNovedades">
-                    <button>LOAD MORE</button>
+                    
+                    <button onClick={() => masPelis()}>{LoadingMore && "LOAD MORE"}{Loading && "Loading..."}</button>
                 </div>
             </div>
         )
     } else {
         return (
-            <div className='designPeliculas'>
+            <div className='designPeliculasLoading'>
                 <div className="marginLoader">
                     <img src={require('../../img/loader.gif')} alt="cargador" />
                 </div>
