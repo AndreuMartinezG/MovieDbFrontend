@@ -81,6 +81,7 @@ const Peliculas = (props) => {
     if (films[0]?.id !== undefined) {
         return (
             <div className='designPeliculas'>
+                
                 {/*APARTADO PARA LA IMAGEN DE CABECERA */}
 
                 <MainImage
