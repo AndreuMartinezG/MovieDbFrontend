@@ -13,7 +13,6 @@ function MovieInfo(props) {
         {movie.vote_average}
         </Descriptions.Item>
         <Descriptions.Item label="vote_count">{movie.vote_count}</Descriptions.Item>
-        <Descriptions.Item label="status">Released</Descriptions.Item>
         <Descriptions.Item label="popularity">{movie.popularity}</Descriptions.Item>
       </Descriptions>
     )

@@ -84,8 +84,13 @@ const DetallesPelicula = (props) => {
                     <Row gutter={[16, 16]}>
                         {
                             Casts.map((cast, index) => (
-                                cast.profile_path &&
-                                <GridCard actor image={cast.profile_path} characterName={cast.characterName} />
+                                <React.Fragment key={index}>
+                                {cast.profile_path &&
+                                <GridCard actor
+                                    image={cast.profile_path}
+                                    characterName={cast.characterName}
+                                    keyActor={cast.id} />}
+                                </React.Fragment>
                             ))
                         }
                     </Row>

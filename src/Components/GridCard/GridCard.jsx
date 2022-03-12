@@ -4,11 +4,11 @@ import { Col } from 'antd';
 import './GridCard.css'
 import { connect } from 'react-redux';
 
-import { POSTER_SIZE, IMAGE_BASE_URL} from '../../configPeliculas';
+import { POSTER_SIZE, IMAGE_BASE_URL } from '../../configPeliculas';
 
 function GridCards(props) {
 
-    let { actor, key, keyPeli, image, movieId, movieName, characterName } = props
+    let { actor, key, keyPeli, keyActor, image, movieId, movieName, characterName } = props
 
 
     const escogePelicula = (pelicula) => {
@@ -25,9 +25,10 @@ function GridCards(props) {
     if (actor) {
         return (
             <Col key={key} lg={6} md={8} xs={24}>
-                <div
-                    // onClick={() => escogePelicula(props.objetoPeli)} 
-                    key={keyPeli} style={{ position: 'relative' }}>
+                <div className='card'
+                    key={keyActor}
+                    // onClick={() => escogePelicula(props.objetoPeli)}
+                    style={{ position: 'relative' }}>
                     <img style={{ width: '100%', height: '30em' }} alt={characterName} src={`${IMAGE_BASE_URL}${POSTER_SIZE}${image}`} />
                 </div>
             </Col>
@@ -37,7 +38,7 @@ function GridCards(props) {
             <Col key={key} lg={6} md={8} xs={24}>
                 <div className='card' onClick={() => escogePelicula(props.objetoPeli)} key={keyPeli} style={{ position: 'relative' }}>
                     <a href={`/detallesPelicula/${movieId}`} >
-                        <img style={{ width: '90%', height: '30em' }} alt={movieName} src={image} />
+                        <img style={{ width: '100%', height: '30em' }} alt={movieName} src={image} />
                     </a>
                 </div>
             </Col>
