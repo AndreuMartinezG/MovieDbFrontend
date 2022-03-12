@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import 'antd/dist/antd.css';
 import { Input, Button } from 'antd';
 import './Header.css'
-import { key } from "../../utiles";
+import { API_KEY } from '../../configPeliculas';
 import axios from "axios";
 
 
@@ -45,7 +45,7 @@ const Header = (props) => {
         //Axios que trae resultados....
 
         try {
-            let resultados = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=${titulo}&page=1&include_adult=false`);
+            let resultados = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${titulo}&page=1&include_adult=false`);
 
             console.log(resultados)
             //Guardo en redux los resultados de las películas

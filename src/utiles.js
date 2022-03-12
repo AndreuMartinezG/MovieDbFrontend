@@ -39,5 +39,3 @@ export const checkError = (type,value) => {
 
 
 export const raiz = "https://image.tmdb.org/t/p/w185";
-
-export const key = '210d6a5dd3f16419ce349c9f1b200d6d';

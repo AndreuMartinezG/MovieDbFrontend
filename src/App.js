@@ -36,7 +36,7 @@ function App() {
           <Route path='/pedidos' element={<Pedidos />} />
           <Route path='/datosPerfil' element={<DatosPerfil />} />
           <Route path='/modificarPerfil' element={<ModificarPerfil />} />
-          <Route path='/detallespelicula' element={<DetallesPelicula />} />
+          <Route path='/detallespelicula/:movieId' element={<DetallesPelicula />} />
           <Route path='/resultadobusqueda' element={<ResultadoBusqueda />} />
         </Routes>
 

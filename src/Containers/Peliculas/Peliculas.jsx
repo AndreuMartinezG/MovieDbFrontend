@@ -8,6 +8,7 @@ import './Peliculas.css'
 import { Typography, Row, Button } from 'antd';
 import MainImage from '../../Components/MainImg/MainImage';
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE, BACKDROP_SIZE } from '../../configPeliculas';
+import GridCard from '../../Components/GridCard/GridCard';
 
 const { Title } = Typography;
 
@@ -16,7 +17,6 @@ const { Title } = Typography;
 
 const Peliculas = (props) => {
 
-    const key = '210d6a5dd3f16419ce349c9f1b200d6d'
     let navigate = useNavigate();
 
     //HOOKS
@@ -50,7 +50,7 @@ const Peliculas = (props) => {
 
         try {
 
-            let res = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=1`, config);
+            let res = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`, config);
 
             setTimeout(() => {
 
@@ -81,7 +81,7 @@ const Peliculas = (props) => {
     if (films[0]?.id !== undefined) {
         return (
             <div className='designPeliculas'>
-
+                {console.log(films)}
                 {/*APARTADO PARA LA IMAGEN DE CABECERA */}
 
                 <MainImage
@@ -102,19 +102,33 @@ const Peliculas = (props) => {
                     <Row gutter={[16, 16]}>
                         {
 
-                            films.map(pelicula => {
+                            films.map((pelicula, index) => {
 
                                 return (
-                                    <div className='mostrarImg' key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
-                                        <img src={raiz + pelicula.poster_path} alt={pelicula.title} />
-                                    </div>
+                                    <React.Fragment key={index}>
+                                        {console.log(pelicula)}
+                                        <GridCard
+                                            objetoPeli = {pelicula}
+                                            image={raiz + pelicula.poster_path}
+                                            movieId={pelicula.id}
+                                            movieName={pelicula.title}
+                                            keyPeli={pelicula.id}
+                                        />
+                                    </React.Fragment>
                                 )
+
+
                             })
                         }
                     </Row>
 
                 </div>
 
+                {/* return (
+                    <div className='mostrarImg' key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
+                        <img src={raiz + pelicula.poster_path} alt={pelicula.title} />
+                    </div>
+                ) */}
 
                 <div className="botonMasNovedades">
                     <button>LOAD MORE</button>
