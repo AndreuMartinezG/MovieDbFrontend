@@ -85,7 +85,7 @@ const Peliculas = (props) => {
                 {/*APARTADO PARA LA IMAGEN DE CABECERA */}
 
                 <MainImage
-                    image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${films[0].backdrop_path}`}
+                    image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${films[0].backdrop_path}`}
                     title={films[0].original_title}
                     text={films[0].overview}
                 />

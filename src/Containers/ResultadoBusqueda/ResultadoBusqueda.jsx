@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { raiz} from '../../utiles';
+import { raiz } from '../../utiles';
 import { MOVIE_DETAIL } from '../../redux/types';
 import { connect } from 'react-redux';
 import './ResultadoBusqueda.css'
@@ -27,7 +27,7 @@ const ResultadoBusqueda = (props) => {
 
 
 
-    
+
     const escogePelicula = (pelicula) => {
 
         console.log(pelicula);
@@ -48,11 +48,31 @@ const ResultadoBusqueda = (props) => {
             <div className='designPeliculas'>
                 {/*APARTADO PARA LA IMAGEN DE CABECERA */}
 
-                <MainImage
-                    image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.films.results[0].backdrop_path}`}
+                {/* <MainImage
+                    image={`${IMAGE_BASE_URL}w1280${props.films.results[0].backdrop_path}`}
                     title={props.films.results[0].original_title}
                     text={props.films.results[0].overview}
-                />
+                /> */}
+
+                <div
+                    style={{
+                        backgroundSize: '100%, cover',
+                        backgroundImage: `url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.films.results[0].backdrop_path}')`,
+                        height: '40em',
+
+                        backgroundPosition: 'center, center',
+                        width: '100%',
+                        position: 'relative',
+                        marginTop: '1em'
+                    }}
+                >
+                    <div>
+                        <div style={{ position: 'absolute', maxWidth: '500px', bottom: '2rem', marginLeft: '2rem' }} >
+                            <Title style={{ color: 'white' }} level={2} > {props.films.results[0].original_title} </Title>
+                            <p style={{ color: 'white', fontSize: '1rem' }}  >{props.films.results[0].overview} </p>
+                        </div>
+                    </div>
+                </div>
                 {/*BODY*/}
 
                 <div className="bodyNovedades">
@@ -62,17 +82,17 @@ const ResultadoBusqueda = (props) => {
 
                     {/* GRID CARDS */}
 
-                        {
+                    {
 
-                            props.films.results.map(pelicula => {
+                        props.films.results.map(pelicula => {
 
-                                return (
-                                    <div className='mostrarImg' key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
-                                        <img src={raiz + pelicula.poster_path} alt={pelicula.title} />
-                                    </div>
-                                )
-                            })
-                        }
+                            return (
+                                <div className='mostrarImg' key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
+                                    <img src={raiz + pelicula.poster_path} alt={pelicula.title} />
+                                </div>
+                            )
+                        })
+                    }
 
                 </div>
 
