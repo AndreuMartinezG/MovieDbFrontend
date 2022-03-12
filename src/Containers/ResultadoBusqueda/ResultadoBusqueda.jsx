@@ -5,6 +5,8 @@ import { MOVIE_DETAIL } from '../../redux/types';
 import { connect } from 'react-redux';
 import './ResultadoBusqueda.css'
 import { Typography, Row } from 'antd';
+import MainImage from '../../Components/MainImg/MainImage';
+import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE, BACKDROP_SIZE } from '../../configPeliculas';
 
 const { Title } = Typography;
 
@@ -46,17 +48,11 @@ const ResultadoBusqueda = (props) => {
             <div className='designPeliculas'>
                 {/*APARTADO PARA LA IMAGEN DE CABECERA */}
 
-                <div className="imgCabezera">
-
-                </div>
-
-                <div>
-                    <div className="tituloNovedades">
-                        <Title style={{ color: 'white' }} level={2}>Titulo</Title>
-                        <p style={{ color: 'white', fontSize: '1rem' }}>Textoo</p>
-                    </div>
-                </div>
-
+                <MainImage
+                    image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.films.results[0].backdrop_path}`}
+                    title={props.films.results[0].original_title}
+                    text={props.films.results[0].overview}
+                />
                 {/*BODY*/}
 
                 <div className="bodyNovedades">
