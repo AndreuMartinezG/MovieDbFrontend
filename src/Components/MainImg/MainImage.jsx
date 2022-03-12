@@ -8,7 +8,7 @@ function MainImage(props) {
     return (
         <div
             style={{
-                backgroundSize: '100%, cover',
+                
                 background:
                     `linear-gradient(to bottom, rgba(0,0,0,0)
                     39%,rgba(0,0,0,0)
@@ -16,9 +16,9 @@ function MainImage(props) {
                     100%),
                     url('${props.image}'), #1c1c1c`,
                 height: '40em',
-
+                backgroundSize: '100%, cover',
                 backgroundPosition: 'center, center',
-                width: '100vw',
+                width: '100%',
                 position: 'relative',
                 marginTop: '1em'
             }}
