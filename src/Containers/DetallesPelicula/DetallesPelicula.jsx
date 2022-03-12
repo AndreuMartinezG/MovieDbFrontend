@@ -7,6 +7,9 @@ import MovieInfo from '../../Components/MovieInfo/MovieInfo';
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE } from '../../configPeliculas';
 //import Rent from '../../Components/Rent/Rent';
 import { raiz } from '../../utiles';
+import GridCard from '../../Components/GridCard/GridCard';
+
+import { List, Avatar, Row, Col, Button } from 'antd';
 
 import './DetallesPelicula.css'
 
@@ -16,8 +19,8 @@ const DetallesPelicula = (props) => {
     let navigate = useNavigate();
     const movieId = props.search.id
     console.log(props)
-    
-    
+
+
     const [Casts, setCasts] = useState([])
     const [ActorToggle, setActorToggle] = useState(false)
 
@@ -31,6 +34,10 @@ const DetallesPelicula = (props) => {
         getDetallesPelicula()
     }, []);
 
+    const toggleActorView = () => {
+        setActorToggle(!ActorToggle)
+    }
+
 
     const getDetallesPelicula = async () => {
 
@@ -41,23 +48,23 @@ const DetallesPelicula = (props) => {
             let res = await axios.get(endpointForCasts);
             setCasts(res.data.cast)
 
-            
+
         } catch (error) {
             console.log(error);
         }
     }
-    
+
     return (
         <div className="designDetallesPelicula">
 
             {/* Header */}
+            {console.log(Casts)}
+            <MainImage
+                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${props.search.backdrop_path}`}
+                title={props.search.original_title}
+                text={props.search.overview}
+            />
 
-                <MainImage
-                    image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${props.search.backdrop_path}`}
-                    title={props.search.original_title}
-                    text={props.search.overview}
-                />
-            
 
             {/* Body */}
 
@@ -66,6 +73,24 @@ const DetallesPelicula = (props) => {
                 {/* Movie Info */}
 
                 <MovieInfo movie={props.search} />
+
+                {/* Actors Grid*/}
+
+                <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem' }}>
+                    <Button onClick={toggleActorView}>Toggle Actor View </Button>
+                </div>
+
+                {ActorToggle &&
+                    <Row gutter={[16, 16]}>
+                        {
+                            Casts.map((cast, index) => (
+                                cast.profile_path &&
+                                <GridCard actor image={cast.profile_path} characterName={cast.characterName} />
+                            ))
+                        }
+                    </Row>
+                }
+                <br />
 
             </div>
 

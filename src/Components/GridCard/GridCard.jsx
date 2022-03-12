@@ -4,6 +4,8 @@ import { Col } from 'antd';
 import './GridCard.css'
 import { connect } from 'react-redux';
 
+import { POSTER_SIZE, IMAGE_BASE_URL} from '../../configPeliculas';
+
 function GridCards(props) {
 
     let { actor, key, keyPeli, image, movieId, movieName, characterName } = props
@@ -24,8 +26,9 @@ function GridCards(props) {
         return (
             <Col key={key} lg={6} md={8} xs={24}>
                 <div
-                    onClick={() => escogePelicula(props.objetoPeli)} key={keyPeli} style={{ position: 'relative' }}>
-                    <img style={{ width: '100%', height: '30em' }} alt={characterName} src={`${image}`} />
+                    // onClick={() => escogePelicula(props.objetoPeli)} 
+                    key={keyPeli} style={{ position: 'relative' }}>
+                    <img style={{ width: '100%', height: '30em' }} alt={characterName} src={`${IMAGE_BASE_URL}${POSTER_SIZE}${image}`} />
                 </div>
             </Col>
         )
