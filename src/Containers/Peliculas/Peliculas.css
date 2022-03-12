@@ -18,3 +18,12 @@
     width: 100vw;
     margin: 1em;
 }
+
+.designPeliculasLoading {
+    height: 88vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

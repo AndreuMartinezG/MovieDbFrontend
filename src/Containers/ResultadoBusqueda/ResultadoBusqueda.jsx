@@ -93,7 +93,7 @@ const ResultadoBusqueda = (props) => {
         )
     } else {
         return (
-            <div className='designPeliculas'>
+            <div className='designPeliculasLoading'>
                 <div className="marginLoader">
                     <img src={require('../../img/loader.gif')} alt="cargador" />
                 </div>

@@ -132,6 +132,7 @@ const Peliculas = (props) => {
         return (
             <div className='designPeliculasLoading'>
                 <div className="marginLoader">
+                    <h1>LOADING</h1>
                     <img src={require('../../img/loader.gif')} alt="cargador" />
                 </div>
             </div>
