@@ -5,15 +5,8 @@
 
 }
 
-.mostrarImg{
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 25%;
-}
-
-
 .bodyNovedades {
-    width: 85%;
+    width: 75%;
     margin: 1rem auto;
 }
 
