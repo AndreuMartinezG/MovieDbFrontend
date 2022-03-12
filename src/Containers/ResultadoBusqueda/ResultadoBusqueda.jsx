@@ -63,25 +63,25 @@ const ResultadoBusqueda = (props) => {
 
                     {/* GRID CARDS */}
 
+                    <Row gutter={[16, 16]}>
+                        {
+                            props.films.results.map((pelicula, index) => {
 
-                    {
-                        props.films.results.map((pelicula, index) => {
-
-                            return (
-                                <React.Fragment key={index}>
-                                    {console.log(pelicula)}
-                                    <GridCard
-                                        objetoPeli={pelicula}
-                                        image={raiz + pelicula.poster_path}
-                                        movieId={pelicula.id}
-                                        movieName={pelicula.title}
-                                        keyPeli={pelicula.id}
-                                    />
-                                </React.Fragment>
-                            )
-                        })
-                    }
-
+                                return (
+                                    <React.Fragment key={index}>
+                                        {console.log(pelicula)}
+                                        <GridCard
+                                            objetoPeli={pelicula}
+                                            image={raiz + pelicula.poster_path}
+                                            movieId={pelicula.id}
+                                            movieName={pelicula.title}
+                                            keyPeli={pelicula.id}
+                                        />
+                                    </React.Fragment>
+                                )
+                            })
+                        }
+                    </Row>
 
 
                 </div>
