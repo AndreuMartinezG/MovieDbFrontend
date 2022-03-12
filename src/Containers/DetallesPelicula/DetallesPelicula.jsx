@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import MainImage from '../../Components/MainImg/MainImage';
+import MovieInfo from '../../Components/MovieInfo/MovieInfo';
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE } from '../../configPeliculas';
 //import Rent from '../../Components/Rent/Rent';
 import { raiz } from '../../utiles';
@@ -14,9 +15,11 @@ const DetallesPelicula = (props) => {
 
     let navigate = useNavigate();
     const movieId = props.search.id
+    console.log(props)
     
     
     const [Casts, setCasts] = useState([])
+    const [ActorToggle, setActorToggle] = useState(false)
 
     //Use EFECT
     useEffect(() => {
@@ -62,7 +65,7 @@ const DetallesPelicula = (props) => {
 
                 {/* Movie Info */}
 
-                
+                <MovieInfo movie={props.search} />
 
             </div>
 
