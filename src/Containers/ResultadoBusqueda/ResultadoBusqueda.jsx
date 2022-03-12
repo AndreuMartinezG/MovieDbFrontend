@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { raiz } from '../../utiles';
-import { MOVIE_DETAIL } from '../../redux/types';
 import { connect } from 'react-redux';
 import './ResultadoBusqueda.css'
 import { Typography, Row } from 'antd';
-import MainImage from '../../Components/MainImg/MainImage';
-import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE, BACKDROP_SIZE } from '../../configPeliculas';
+import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../configPeliculas';
+import GridCard from '../../Components/GridCard/GridCard';
 
 const { Title } = Typography;
 
@@ -26,33 +25,12 @@ const ResultadoBusqueda = (props) => {
     })
 
 
-
-
-    const escogePelicula = (pelicula) => {
-
-        console.log(pelicula);
-        //Guardamos la pelicula escogida en redux
-        props.dispatch({ type: MOVIE_DETAIL, payload: pelicula });
-
-
-        //Redirigimos a movieDetail con navigate
-        navigate("/detallespelicula");
-    }
-
-    console.log(props.films)
-
     // RENDER
 
     if (props.films.results[0]?.id !== undefined) {
         return (
             <div className='designPeliculas'>
                 {/*APARTADO PARA LA IMAGEN DE CABECERA */}
-
-                {/* <MainImage
-                    image={`${IMAGE_BASE_URL}w1280${props.films.results[0].backdrop_path}`}
-                    title={props.films.results[0].original_title}
-                    text={props.films.results[0].overview}
-                /> */}
 
                 <div
                     style={{
@@ -66,7 +44,7 @@ const ResultadoBusqueda = (props) => {
                         marginTop: '1em',
                         marginLeft: '1em',
                         marginRight: '1em'
-                        
+
                     }}
                 >
                     <div>
@@ -85,17 +63,26 @@ const ResultadoBusqueda = (props) => {
 
                     {/* GRID CARDS */}
 
-                    {
 
-                        props.films.results.map(pelicula => {
+                    {
+                        props.films.results.map((pelicula, index) => {
 
                             return (
-                                <div className='mostrarImg' key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
-                                    <img src={raiz + pelicula.poster_path} alt={pelicula.title} />
-                                </div>
+                                <React.Fragment key={index}>
+                                    {console.log(pelicula)}
+                                    <GridCard
+                                        objetoPeli={pelicula}
+                                        image={raiz + pelicula.poster_path}
+                                        movieId={pelicula.id}
+                                        movieName={pelicula.title}
+                                        keyPeli={pelicula.id}
+                                    />
+                                </React.Fragment>
                             )
                         })
                     }
+
+
 
                 </div>
 

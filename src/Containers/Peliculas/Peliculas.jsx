@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { raiz } from '../../utiles';
-import { MOVIE_DETAIL } from '../../redux/types';
 import { connect } from 'react-redux';
 import './Peliculas.css'
-import { Typography, Row, Button } from 'antd';
+import { Typography, Row } from 'antd';
 import MainImage from '../../Components/MainImg/MainImage';
-import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE, BACKDROP_SIZE } from '../../configPeliculas';
+import { API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE } from '../../configPeliculas';
 import GridCard from '../../Components/GridCard/GridCard';
 
 const { Title } = Typography;
@@ -62,20 +61,6 @@ const Peliculas = (props) => {
         }
     };
 
-
-    const escogePelicula = (pelicula) => {
-
-        console.log(pelicula);
-        //Guardamos la pelicula escogida en redux
-        props.dispatch({ type: MOVIE_DETAIL, payload: pelicula });
-
-
-        //Redirigimos a movieDetail con navigate
-        navigate("/detallespelicula");
-    }
-
-
-
     // RENDER
 
     if (films[0]?.id !== undefined) {
@@ -120,12 +105,6 @@ const Peliculas = (props) => {
                     </Row>
 
                 </div>
-
-                {/* return (
-                    <div className='mostrarImg' key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
-                        <img src={raiz + pelicula.poster_path} alt={pelicula.title} />
-                    </div>
-                ) */}
 
                 <div className="botonMasNovedades">
                     <button>LOAD MORE</button>

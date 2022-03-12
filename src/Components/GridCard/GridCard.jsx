@@ -9,10 +9,7 @@ import { connect } from 'react-redux';
 
 function GridCards(props) {
 
-    let navigate = useNavigate();
-
     let { actor, key, keyPeli, image, movieId, movieName, characterName } = props
-    const POSTER_SIZE = "w154";
 
 
     const escogePelicula = (pelicula) => {
