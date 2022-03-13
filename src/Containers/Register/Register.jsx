@@ -55,7 +55,7 @@ const Register = (props) => {
         }
     })
 
-    const phoneRegExp = '/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/ '
+    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/ ;
     //const dispatch = useDispatch();
     return (
   
@@ -189,7 +189,6 @@ const Register = (props) => {
                               )}
                             </Form.Item>
 
-
                             <Form.Item required label="Edad" hasFeedback validateStatus={errors.edad && touched.edad ? "error" : 'success'}>
                               <Input
                                 id="edad"
@@ -205,7 +204,25 @@ const Register = (props) => {
                               {errors.edad && touched.edad && (
                                 <div className="input-feedback">{errors.edad}</div>
                               )}
-                              
+
+                            </Form.Item>
+
+                            <Form.Item required label="Telefono" hasFeedback validateStatus={errors.telefono && touched.telefono ? "error" : 'success'}>
+                              <Input
+                                id="telefono"
+                                placeholder="Introduce tu Telefono"
+                                type="text"
+                                value={values.telefono}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                className={
+                                  errors.telefono && touched.telefono ? 'text-input error' : 'text-input'
+                                }
+                              />
+                              {errors.telefono && touched.telefono && (
+                                <div className="input-feedback">{errors.telefono}</div>
+                              )}
+
                             </Form.Item>
                             
                             <Form.Item required label="Password" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
