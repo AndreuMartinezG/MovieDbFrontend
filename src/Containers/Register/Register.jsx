@@ -208,6 +208,7 @@ const Register = (props) => {
                             </Form.Item>
                             
                             <Form.Item required label="Password" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
+                                
                               <Input
                                 id="password"
                                 placeholder="Enter your password"
