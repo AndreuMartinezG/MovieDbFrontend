@@ -141,7 +141,9 @@ const Register = (props) => {
                 return (
 
                     <div className="app">
-                        <h1>Registro</h1>
+                        <h1 className='h1Registro'>Registro</h1>
+                        <hr />
+                        <br></br>
                         <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
                             <Form.Item required label="Nombre" hasFeedback validateStatus={errors.nombre && touched.nombre ? "error" : 'success'}>
@@ -266,9 +268,9 @@ const Register = (props) => {
                                 )}
                             </Form.Item>
 
-                            <Form.Item {...tailFormItemLayout}>
+                            <Form.Item className='floatLeft'{...tailFormItemLayout}>
                                 <Button onClick={handleSubmit} type="primary" disabled={isSubmitting}>
-                                    Submit
+                                    Enviar
                                 </Button>
                             </Form.Item>
                         </Form>
