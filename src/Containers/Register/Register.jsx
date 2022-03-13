@@ -205,6 +205,7 @@ const Register = (props) => {
                               {errors.edad && touched.edad && (
                                 <div className="input-feedback">{errors.edad}</div>
                               )}
+                              
                             </Form.Item>
                             
                             <Form.Item required label="Password" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
