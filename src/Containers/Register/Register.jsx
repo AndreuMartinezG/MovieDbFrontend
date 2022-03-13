@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
-import moment from "moment";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -55,6 +54,40 @@ const Register = (props) => {
         }
     })
 
+
+    const registrame = async () => {
+       
+
+        //2construimos el body
+
+        let body = {
+            
+        }
+
+        console.log("Esto es el body del registro", body);
+        //3 envio de axios
+
+        try {
+
+            let resultado = await axios.post("https://movie-db-geekshubs.herokuapp.com/usuarios", body);
+            console.log(resultado);
+
+            setTimeout(() => {
+                navigate("/login");
+            }, 500);
+
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
+
+
+    //RENDER
+
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/ ;
     //const dispatch = useDispatch();
     return (
@@ -104,9 +137,12 @@ const Register = (props) => {
                   edad: values.edad,
                   telefono: values.telefono,
                   password: values.password,
-                  //image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
                 };
-            
+                console.log(dataToSubmit, "ESto se enviaria")
+
+                registrame(dataToSubmit)
+
+                
                 // dispatch(registerUser(dataToSubmit)).then(response => {
                 //   if (response.payload.success) {
                 //     props.history.push("/login");
