@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import './Peliculas.css'
 import { Typography, Row } from 'antd';
 import MainImage from '../../Components/MainImg/MainImage';
-import { API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE } from '../../configPeliculas';
+import { API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, IMAGE_SIZE, } from '../../configPeliculas';
 import GridCard from '../../Components/GridCard/GridCard';
 
 const { Title } = Typography;
@@ -87,7 +87,7 @@ const Peliculas = (props) => {
             <div className='designPeliculas'>
                 {/*APARTADO PARA LA IMAGEN DE CABECERA */}
                 <MainImage
-                    image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${films[0].backdrop_path}`}
+                    image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${films[0].backdrop_path}`}
                     title={films[0].original_title}
                     text={films[0].overview}
                 />

@@ -142,8 +142,7 @@ const Register = (props) => {
 
                     <div className="app">
                         <h1 className='h1Registro'>Registro</h1>
-                        <hr />
-                        <br></br>
+                        
                         <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
                             <Form.Item required label="Nombre" hasFeedback validateStatus={errors.nombre && touched.nombre ? "error" : 'success'}>
