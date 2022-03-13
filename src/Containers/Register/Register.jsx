@@ -235,7 +235,7 @@ const Register = (props) => {
 
                                 <Input
                                     id="password"
-                                    placeholder="Enter your password"
+                                    placeholder="Introduce tu Contraseña"
                                     type="password"
                                     value={values.password}
                                     onChange={handleChange}
@@ -249,10 +249,10 @@ const Register = (props) => {
                                 )}
                             </Form.Item>
 
-                            <Form.Item required label="Confirm" hasFeedback>
+                            <Form.Item required label="Confirm" hasFeedback validateStatus={errors.confirmPassword && touched.confirmPassword ? "error" : 'success'}>
                                 <Input
                                     id="confirmPassword"
-                                    placeholder="Enter your confirmPassword"
+                                    placeholder="Introduce confirmacion de Contraseña"
                                     type="password"
                                     value={values.confirmPassword}
                                     onChange={handleChange}
