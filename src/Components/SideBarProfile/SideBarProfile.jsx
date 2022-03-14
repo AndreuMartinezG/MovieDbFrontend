@@ -45,13 +45,27 @@ function SideBarProfile() {
                     <Link to="/profile" className="link">
                     <li className="sidebarListItem">
                       <PermIdentity className="sidebarIcon" />
-                      Perfil
+                      Area Usuario
                     </li>
                     </Link>
+                    <Link to="/datosPerfil" className="link">
                     <li className="sidebarListItem">
                       <PermIdentity className="sidebarIcon" />
-                      Datos/Modificar Perfil
+                      Datos Perfil
                     </li>
+                    </Link>
+                    <Link to="/carrito" className="link">
+                    <li className="sidebarListItem">
+                      <Storefront className="sidebarIcon" />
+                      Carrito
+                    </li>
+                    </Link>
+                    <Link to="/pedidos" className="link">
+                    <li className="sidebarListItem">
+                      <AttachMoney className="sidebarIcon" />
+                      Pedidos
+                    </li>
+                    </Link>
                   </ul>
                 </div>
                 <div className="sidebarMenu">
@@ -60,58 +74,16 @@ function SideBarProfile() {
                     <Link to="/users" className="link">
                       <li className="sidebarListItem">
                         <PermIdentity className="sidebarIcon" />
-                        Users
+                        Peliculas
                       </li>
                     </Link>
                     <Link to="/products" className="link">
                       <li className="sidebarListItem">
                         <Storefront className="sidebarIcon" />
-                        Products
+                        Series
                       </li>
                     </Link>
-                    <li className="sidebarListItem">
-                      <AttachMoney className="sidebarIcon" />
-                      Transactions
-                    </li>
-                    <li className="sidebarListItem">
-                      <BarChart className="sidebarIcon" />
-                      Reports
-                    </li>
-                  </ul>
-                </div>
-                <div className="sidebarMenu">
-                  <h3 className="sidebarTitle">Notifications</h3>
-                  <ul className="sidebarList">
-                    <li className="sidebarListItem">
-                      <MailOutline className="sidebarIcon" />
-                      Mail
-                    </li>
-                    <li className="sidebarListItem">
-                      <DynamicFeed className="sidebarIcon" />
-                      Feedback
-                    </li>
-                    <li className="sidebarListItem">
-                      <ChatBubbleOutline className="sidebarIcon" />
-                      Messages
-                    </li>
-                  </ul>
-                </div>
-                <div className="sidebarMenu">
-                  <h3 className="sidebarTitle">Staff</h3>
-                  <ul className="sidebarList">
-                    <li className="sidebarListItem">
-                      <WorkOutline className="sidebarIcon" />
-                      Manage
-                    </li>
-                    <li className="sidebarListItem">
-                      <Timeline className="sidebarIcon" />
-                      Analytics
-                    </li>
-                    <li className="sidebarListItem">
-                      <Report className="sidebarIcon" />
-                      Reports
-                    </li>
-                  </ul>
+                    </ul>
                 </div>
             </div>
         </div>
