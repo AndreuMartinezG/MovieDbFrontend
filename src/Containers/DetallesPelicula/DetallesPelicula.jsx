@@ -18,10 +18,10 @@ const DetallesPelicula = (props) => {
 
     let navigate = useNavigate();
     const movieId = props.search.id
-    console.log(props)
 
 
     const [Casts, setCasts] = useState([])
+    const [DataFilm, setDataFilm] = useState([])
     const [ActorToggle, setActorToggle] = useState(false)
 
     //Use EFECT
@@ -42,11 +42,14 @@ const DetallesPelicula = (props) => {
     const getDetallesPelicula = async () => {
 
         let endpointForCasts = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
+        let detallesVideo = `${API_URL}movie/${movieId}?api_key=${API_KEY}&append_to_response=videos`
 
         try {
 
             let res = await axios.get(endpointForCasts);
+            let resVideo = await axios.get(detallesVideo)
             setCasts(res.data.cast)
+            setDataFilm(resVideo.data)
 
 
         } catch (error) {
@@ -58,7 +61,6 @@ const DetallesPelicula = (props) => {
         <div className="designDetallesPelicula">
 
             {/* Header */}
-            {console.log(Casts)}
             <MainImage
                 image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${props.search.backdrop_path}`}
                 title={props.search.original_title}
@@ -71,8 +73,8 @@ const DetallesPelicula = (props) => {
             <div style={{ width: '85%', margin: '1rem auto' }}>
 
                 {/* Movie Info */}
-
-                <MovieInfo movie={props.search} />
+            
+                <MovieInfo movie={props.search} detalles={DataFilm}/>
 
                 {/* Actors Grid*/}
 
@@ -98,20 +100,6 @@ const DetallesPelicula = (props) => {
                 <br />
 
             </div>
-
-
-            {/* <div className="filmDetailHalf">
-                <div className="dataFilm">{props.search.original_title}</div>
-                <div className="dataFilm">{props.search.overview}</div>
-                <div className="dataFilm">
-                    {
-                        //EN CASO DE QUE TOKEN SEA TRUE, SI SE INCLUYE EL ELEMENTO RENT
-                        //props.credentials.token && <Rent id={props.search.id} token={props.credentials.token} idUser={props.credentials.usuario.id}/>
-                    }
-                </div>
-            </div>
-            <div className="filmDetailHalf">
-                <img src={raiz + props.search.poster_path} alt={props.search.original_title} /></div> */}
         </div>
     )
 }

@@ -1,21 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Descriptions, Badge } from 'antd';
+import { useState } from 'react';
 
 function MovieInfo(props) {
 
-    const { movie } = props;
-    
-    return (
-        <Descriptions title="Movie Info" bordered>
-        <Descriptions.Item label="Title">{movie.original_title}</Descriptions.Item>
-        <Descriptions.Item label="release_date">{movie.release_date}</Descriptions.Item>
-        <Descriptions.Item label="vote_average" span={2}>
+  const { movie, detalles } = props;
+
+  return (
+    <Descriptions title="Movie Info" bordered>
+      <Descriptions.Item label="Title">{movie.original_title}</Descriptions.Item>
+      <Descriptions.Item label="Vote Count">{movie.vote_count}</Descriptions.Item>
+      <Descriptions.Item label="Vote Average" span={2}>
         {movie.vote_average}
-        </Descriptions.Item>
-        <Descriptions.Item label="vote_count">{movie.vote_count}</Descriptions.Item>
-        <Descriptions.Item label="popularity">{movie.popularity}</Descriptions.Item>
-      </Descriptions>
-    )
+      </Descriptions.Item>
+      <Descriptions.Item label="Release Date">{movie.release_date}</Descriptions.Item>
+      <Descriptions.Item label="Run Time">{detalles.runtime} min</Descriptions.Item>
+    </Descriptions>
+  )
 }
 
 export default MovieInfo
