@@ -8,6 +8,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE } from '../../configPelicu
 //import Rent from '../../Components/Rent/Rent';
 import { raiz } from '../../utiles';
 import GridCard from '../../Components/GridCard/GridCard';
+import Youtube from 'react-youtube'
 
 import { List, Avatar, Row, Col, Button } from 'antd';
 
@@ -32,6 +33,7 @@ const DetallesPelicula = (props) => {
         }
 
         getDetallesPelicula()
+        console.log(DataFilm.videos)
     }, []);
 
     const toggleActorView = () => {
@@ -57,6 +59,20 @@ const DetallesPelicula = (props) => {
         }
     }
 
+    const renderTrailer = () => {
+        const trailer = DataFilm.videos.results.find(vid => vid.name.includes('Trailer') === true)
+
+        return (
+            <Youtube 
+            
+                videoId={trailer.key}
+                containerClassName="youtube-container"
+
+
+            />
+        )
+    }
+
     return (
         <div className="designDetallesPelicula">
 
@@ -76,6 +92,13 @@ const DetallesPelicula = (props) => {
             
                 <MovieInfo movie={props.search} detalles={DataFilm}/>
 
+
+                {/* YOUTUBE VIDEO */}
+                
+                
+                {DataFilm.videos?.results?.find(vid => vid.name.includes('Trailer') === true) ? <h2 className='OfcTrailer'>Official Trailer</h2> : null}
+                {DataFilm.videos?.results?.find(vid => vid.name.includes('Trailer') === true) ? renderTrailer() : null}
+                
                 {/* Actors Grid*/}
 
                 <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem' }}>
