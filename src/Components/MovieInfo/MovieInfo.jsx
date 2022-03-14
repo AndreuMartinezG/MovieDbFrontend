@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Descriptions, Badge } from 'antd';
-import { useState } from 'react';
 
 function MovieInfo(props) {
 
