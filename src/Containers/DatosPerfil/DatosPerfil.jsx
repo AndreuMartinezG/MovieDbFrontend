@@ -64,7 +64,7 @@ const DatosPerfil = (props) => {
     const updateUser = async (dataToSubmit) => {
 
         let body = dataToSubmit
-
+        console.log("EStoy dentro de la funcion update", body)
         let config = {
             headers: { Authorization: `Bearer ${props.credentials.token}` }
         };
@@ -73,8 +73,7 @@ const DatosPerfil = (props) => {
             //Hacemos el update en la base de datos
             let res = await axios.put(`https://movie-db-geekshubs.herokuapp.com/usuarios/${props.credentials.usuario.id}`, body, config);
 
-
-
+            console.log(res, "ESTO ES LA RESPUESTA DEL PUT")
 
             if (res) {
                 //Guardamos en redux
@@ -106,7 +105,7 @@ const DatosPerfil = (props) => {
                             />
                             <div className="userShowTopTitle">
                                 <span className="userShowUsername">{props.credentials.usuario.nombre}</span>
-                                <span className="userShowUserTitle">Software Engineer</span>
+                                <span className="userShowUserTitle">Web Developer</span>
                             </div>
                         </div>
                         <div className="userShowBottom">
@@ -134,15 +133,12 @@ const DatosPerfil = (props) => {
                         <span className="userUpdateTitle">Edit</span>
                         <Formik
                             initialValues={{
-                                nombre: '',
-                                apellido: '',
-                                email: '',
-                                edad: '',
-                                telefono: '',
-                                password: '',
-                                confirmPassword: ''
+                                nombre: `${props.credentials.usuario.nombre}`,
+                                apellido: `${props.credentials.usuario.apellido}`,
+                                edad: `${props.credentials.usuario.edad}`,
+                                email: `${props.credentials.usuario.email}`,
+                                telefono: `${props.credentials.usuario.telefono}`,
                             }}
-
                             validationSchema={Yup.object().shape({
                                 nombre: Yup.string(),
                                 apellido: Yup.string(),
@@ -154,26 +150,19 @@ const DatosPerfil = (props) => {
                                     .max(99, 'Edad maxima 99'),
                                 telefono: Yup.string()
                                     .matches(phoneRegExp, 'Telefono no valido'),
-                                password: Yup.string()
-                                    .min(4, 'La contraseña requiere 4 caracteres')
-                                    .required('Se requiere Contraseña'),
-                                confirmPassword: Yup.string()
-                                    .oneOf([Yup.ref('password'), null], 'Las Contraseñas deben coincidir')
-                                    .required('Se requiere validacion de Contraseña')
                             })}
                             onSubmit={(values, { setSubmitting }) => {
                                 setTimeout(() => {
-
+                                    
                                     let dataToSubmit = {
-
+                                        id: props.credentials.usuario.id,
                                         nombre: values.nombre,
                                         apellido: values.apellido,
-                                        email: values.email,
                                         edad: values.edad,
+                                        email: values.email,
                                         telefono: values.telefono,
-                                        password: values.password,
                                     };
-
+                                    console.log(dataToSubmit, "ESTO SE ENVIA")
                                     updateUser(dataToSubmit)
 
                                     setSubmitting(false);
@@ -283,7 +272,7 @@ const DatosPerfil = (props) => {
 
                                             </Form.Item>
 
-                                            <Form.Item required label="Password" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
+                                            {/* <Form.Item required label="Password" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
 
                                                 <Input
                                                     id="password"
@@ -316,7 +305,7 @@ const DatosPerfil = (props) => {
                                                 {errors.confirmPassword && touched.confirmPassword && (
                                                     <div className="input-feedback">{errors.confirmPassword}</div>
                                                 )}
-                                            </Form.Item>
+                                            </Form.Item> */}
 
                                             <Form.Item className='floatLeft'{...tailFormItemLayout}>
                                                 <Button onClick={handleSubmit} type="primary" disabled={isSubmitting}>
