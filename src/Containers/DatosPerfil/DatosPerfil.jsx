@@ -182,7 +182,7 @@ const DatosPerfil = (props) => {
 
                                 return (
 
-                                    <div >
+                                    <div className="actualizarPerfil" >
                                         <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
                                             <Form.Item required label="Nombre" hasFeedback validateStatus={errors.nombre && touched.nombre ? "error" : 'success'}>
