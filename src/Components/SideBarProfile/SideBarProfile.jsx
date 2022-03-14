@@ -71,13 +71,13 @@ function SideBarProfile() {
                 <div className="sidebarMenu">
                   <h3 className="sidebarTitle">Quick Menu</h3>
                   <ul className="sidebarList">
-                    <Link to="/users" className="link">
+                    <Link to="/peliculas" className="link">
                       <li className="sidebarListItem">
                         <PermIdentity className="sidebarIcon" />
                         Peliculas
                       </li>
                     </Link>
-                    <Link to="/products" className="link">
+                    <Link to="/series" className="link">
                       <li className="sidebarListItem">
                         <Storefront className="sidebarIcon" />
                         Series
@@ -91,38 +91,5 @@ function SideBarProfile() {
 }
 
 export default SideBarProfile;
-
-
-
-        // <>
-        //     <Drawer
-        //         className='sideBar'
-        //         opened={opened}
-        //         onClose={() => setOpened(false)}
-        //         title=""
-        //         padding="xl"
-        //         size="20wh"
-        //         position='left'
-        //     >
-
-        //         <h1 className='titulo-lateral' > Opciones: <hr /></h1>
-        //         <div className="flexSide">
-        //             <div className='bt-lateral' onClick={() => navegar("/pedidos")}>Pedidos </div>
-        //             <div className='bt-lateral' onClick={() => navegar("/datosPerfil")}>Datos de Perfil</div>
-        //             <div className='bt-lateral' onClick={() => navegar("/modificarPerfil")}>Modificar Perfil</div>
-        //             <div className='bt-lateral' onClick={() => navegar("/peliculas")}>Buscar Peliculas</div>
-        //         </div>
-
-
-        //     </Drawer>
-
-        //     <Burger
-        //         opened={opened}
-        //         onClick={() => setOpened(true)}
-        //         size= "xl"
-        //         color="#45f50d" 
-        //     >
-        //         Open Drawer</Burger>
-        // </>
 
 
