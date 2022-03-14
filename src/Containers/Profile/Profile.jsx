@@ -1,6 +1,6 @@
 import React from "react";
 
-import SideBarProf from "../../Components/SideBarProfile/SideBarProfile";
+import SideBarProfile from "../../Components/SideBarProfile/SideBarProfile";
 
 import './Profile.css'
 
@@ -8,9 +8,12 @@ import './Profile.css'
 const Profile = () => {
 
     return (
-        <div>soy perfil</div>
+        <div className="designDatosPerfil">
+            <SideBarProfile />
+            <div className="user">soy perfil</div>
+        </div>
     )
-
+        
 }
 
 
