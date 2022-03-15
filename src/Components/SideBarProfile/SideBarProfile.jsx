@@ -54,7 +54,7 @@ function SideBarProfile() {
                       Datos Perfil
                     </li>
                     </Link>
-                    <Link to="/carrito" className="link">
+                    <Link to="/shopcart" className="link">
                     <li className="sidebarListItem">
                       <Storefront className="sidebarIcon" />
                       Carrito
