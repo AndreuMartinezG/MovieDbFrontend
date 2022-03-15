@@ -13,6 +13,7 @@ import Youtube from 'react-youtube'
 import { List, Avatar, Row, Col, Button } from 'antd';
 
 import './DetallesPelicula.css'
+import AddCarrito from '../../Components/AddCarrito/AddCarrito';
 
 
 const DetallesPelicula = (props) => {
@@ -33,7 +34,6 @@ const DetallesPelicula = (props) => {
         }
 
         getDetallesPelicula()
-        console.log(DataFilm.videos)
     }, []);
 
     const toggleActorView = () => {
@@ -83,13 +83,15 @@ const DetallesPelicula = (props) => {
                 text={props.search.overview}
             />
 
-
             {/* Body */}
 
             <div style={{ width: '85%', margin: '1rem auto' }}>
 
                 {/* Movie Info */}
-            
+                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    {console.log(props)}
+                    <AddCarrito movieInfo={props.search} movieId={props.search.id} userFrom={props.credentials.usuario.id} />
+                </div>
                 <MovieInfo movie={props.search} detalles={DataFilm}/>
 
 
