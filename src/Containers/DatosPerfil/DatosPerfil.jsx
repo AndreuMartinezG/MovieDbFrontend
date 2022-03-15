@@ -138,6 +138,7 @@ const DatosPerfil = (props) => {
                                 edad: `${props.credentials.usuario.edad}`,
                                 email: `${props.credentials.usuario.email}`,
                                 telefono: `${props.credentials.usuario.telefono}`,
+                                
                             }}
                             validationSchema={Yup.object().shape({
                                 nombre: Yup.string(),
@@ -161,6 +162,7 @@ const DatosPerfil = (props) => {
                                         edad: values.edad,
                                         email: values.email,
                                         telefono: values.telefono,
+                                        rol: props.credentials.usuario.rol
                                     };
                                     console.log(dataToSubmit, "ESTO SE ENVIA")
                                     updateUser(dataToSubmit)

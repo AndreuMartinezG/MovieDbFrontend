@@ -25,5 +25,4 @@ const datosLoginReducer = (state = initialState, action) => {
     }
 }
 
-
 export default datosLoginReducer;

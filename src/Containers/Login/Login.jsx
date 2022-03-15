@@ -60,10 +60,8 @@ const Login = (props) => {
 
             let body = dataToSubmit
             
-
-            console.log("envio del body", body)
             let resultado = await axios.post("https://movie-db-geekshubs.herokuapp.com/usuarios/login", body);
-            console.log("resultado", resultado)
+            
 
             //Cambiamos el valor del hook credenciales, por lo tanto se recargará el componente
             if (resultado.data === "Usuario o contraseña inválido") {
@@ -108,7 +106,7 @@ const Login = (props) => {
                     .required('Password is required'),
             })}
             onSubmit={(values, { setSubmitting }) => {
-                console.log(values)
+                
                 setTimeout(() => {
                     let dataToSubmit = {
                         email: values.email,
