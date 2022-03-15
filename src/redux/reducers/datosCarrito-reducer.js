@@ -36,9 +36,29 @@ const cartReducer = (state = initialState, action) => {
             return initialState;
 
         //Ejemplo de modificacion de datos
-        // case REMOVE_CART :
-        //     return {...state, products: action.payload};
-            
+        case REMOVE_CART :
+            let arrayProducts = state.products
+
+            console.log("Estoy en REMOVE_CART")
+
+            let editarCarrito = state.products.map( (item) => {
+                
+				
+				if (item.id === action.payload.id) { // si ya existe
+                    
+                    return !item !== action.payload
+                    
+                };
+				return item;
+				
+			});
+
+            console.log(editarCarrito)
+            return {
+                ...state,
+                products: editarCarrito
+            };
+
         default : 
             return state
     }
