@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { EMPTY_CART, REMOVE_CART } from '../../redux/types';
 import { Typography, Popover, Button } from 'antd';
 import axios from 'axios';
 
@@ -15,14 +16,15 @@ const ShopCart = (props) => {
 
     let navigate = useNavigate()
 
-    
+
     const [Carrito, setCarrito] = useState([])
-    const [Loading, setLoading] = useState(true)
+    const [ControlCarrito, setControlCarrito] = useState(true)
 
     useEffect(() => {
         // fetchFavoredMovie()
         console.log(props)
         setCarrito(props.cart.products)
+        console.log(Carrito)
 
     }, [])
 
@@ -30,10 +32,13 @@ const ShopCart = (props) => {
         if (props.credentials.token === '') {
             navigate("/");
         }
+
     })
 
+    useEffect(() => {
 
-   
+    }, [ControlCarrito])
+
 
     // const fetchFavoredMovie = () => {
     //     axios.post('/api/favorite/getFavoredMovie', variable)
@@ -66,6 +71,13 @@ const ShopCart = (props) => {
     }
 
 
+    const onClickDeleteAll = () => {
+
+        props.dispatch({ type: EMPTY_CART });
+        setControlCarrito(false)
+
+    }
+
     const renderCards = Carrito.map((value, index) => {
 
 
@@ -74,8 +86,7 @@ const ShopCart = (props) => {
                 {value.poster_path ?
                     <img src={`${IMAGE_BASE_URL}${POSTER_SIZE}${value.backdrop_path}`} />
                     : "no image"}
-                
-                <td>{value.overview}</td>
+
             </div>
         );
 
@@ -90,10 +101,11 @@ const ShopCart = (props) => {
         </tr>
     })
 
-    return (
-        <div style={{ width: '85%', margin: '3rem auto' }}>
-            <Title level={2} > Carrito de {props.credentials.usuario.nombre} </Title>
-            <hr />
+    if (ControlCarrito) {
+        return (
+            <div style={{ width: '85%', margin: '3rem auto' }}>
+                <Title level={2} > Carrito de {props.credentials.usuario.nombre} </Title>
+                <hr />
                 <table>
                     <thead>
                         <tr>
@@ -104,11 +116,24 @@ const ShopCart = (props) => {
                     </thead>
                     <tbody>
                         {renderCards}
+
                     </tbody>
+
                 </table>
-            
+                <button onClick={() => onClickDeleteAll()}> Remove All </button>
+                <button onClick={() => onClickDelete(Carrito.movieId, Carrito.userFrom)}> Comprar </button>
+            </div>
+        )
+
+    } else {
+        return (
+        <div style={{ width: '85%', margin: '3rem auto' }}>
+            <Title level={2} > Carrito de {props.credentials.usuario.nombre} </Title>
+            <hr />
+            <h4>PRIMERO AÑADE PRODUCTOS AL CARRITO</h4>
         </div>
-    )
+        )
+    }
 }
 
 

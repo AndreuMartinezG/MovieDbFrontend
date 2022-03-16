@@ -45,7 +45,7 @@ const cartReducer = (state = initialState, action) => {
                 
 				
 				if (item.id === action.payload.id) { // si ya existe
-                    
+                    console.log("He detectado id")
                     return !item !== action.payload
                     
                 };
