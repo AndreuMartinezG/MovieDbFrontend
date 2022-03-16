@@ -7,10 +7,23 @@ table {
   td,
   th {
     border: 1px solid #dddddd;
-    text-align: left;
+    text-align: center;
     padding: 8px;
+
   }
   
   tr:nth-child(even) {
     background-color: #dddddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
   }
+
+.designShop {
+  height: 77.8vh;
+}
+
+.botonesShop {
+  margin-top: 5em;
+}

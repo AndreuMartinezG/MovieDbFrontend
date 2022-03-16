@@ -82,10 +82,10 @@ const ShopCart = (props) => {
 
     //FUNCION PARA COMPRAR
 
-    const onClickComprar =  () => {
+    const onClickComprar = () => {
 
         Carrito.map(value => {
-            
+
             const comprar = async () => {
 
                 let config = {
@@ -99,11 +99,11 @@ const ShopCart = (props) => {
                         genero: value.genre_ids[0],
                         adult: value.adult,
                         fecha: value.release_date
-                    }   
-    
+                    }
+
                     console.log(body)
                     let resultado = await axios.post("https://movie-db-geekshubs.herokuapp.com/peliculas", body, config);
-    
+
                     console.log("resultado", resultado)
 
                     let body2 = {
@@ -116,12 +116,12 @@ const ShopCart = (props) => {
                     let res2 = await axios.post("https://movie-db-geekshubs.herokuapp.com/pedidos", body2, config);
 
                     console.log(res2, "esto es la respuesta del pedido")
-    
+
                 } catch (error) {
-    
+
                 }
             }
-            
+
             comprar();
 
         })
@@ -156,7 +156,7 @@ const ShopCart = (props) => {
 
     if (ControlCarrito) {
         return (
-            <div style={{ width: '85%', margin: '3rem auto' }}>
+            <div className='designShop' style={{ width: '85%', margin: '3rem auto' }}>
                 <Title level={2} > Carrito de {props.credentials.usuario.nombre} </Title>
                 <hr />
                 <table>
@@ -173,14 +173,21 @@ const ShopCart = (props) => {
                     </tbody>
 
                 </table>
-                <button onClick={() => onClickDeleteAll()}> Remove All </button>
-                <button onClick={() => onClickComprar()}> Comprar </button>
+                <div className="botonesShop">
+                    <Button onClick={() => onClickDeleteAll()} type="primary">
+                        Remove All
+                    </Button>
+                    <Button onClick={() => onClickComprar()} type="primary">
+                        Buy
+                    </Button>
+                </div>
+
             </div>
         )
 
     } else {
         return (
-            <div style={{ width: '85%', margin: '3rem auto' }}>
+            <div className='designShop' style={{ width: '85%', margin: '3rem auto' }}>
                 <Title level={2} > Carrito de {props.credentials.usuario.nombre} </Title>
                 <hr />
                 <h4>AÑADE PRODUCTOS AL CARRITO</h4>
