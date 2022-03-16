@@ -64,7 +64,6 @@ const DatosPerfil = (props) => {
     const updateUser = async (dataToSubmit) => {
 
         let body = dataToSubmit
-        console.log("EStoy dentro de la funcion update", body)
         let config = {
             headers: { Authorization: `Bearer ${props.credentials.token}` }
         };
@@ -72,8 +71,6 @@ const DatosPerfil = (props) => {
         try {
             //Hacemos el update en la base de datos
             let res = await axios.put(`https://movie-db-geekshubs.herokuapp.com/usuarios/${props.credentials.usuario.id}`, body, config);
-
-            console.log(res, "ESTO ES LA RESPUESTA DEL PUT")
 
             if (res) {
                 //Guardamos en redux
