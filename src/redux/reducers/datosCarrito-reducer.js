@@ -41,22 +41,24 @@ const cartReducer = (state = initialState, action) => {
 
             console.log("Estoy en REMOVE_CART")
 
-            let editarCarrito = state.products.map( (item) => {
+            // let editarCarrito = state.products.map( (item) => {
                 
 				
-				if (item.id === action.payload.id) { // si ya existe
-                    console.log("He detectado id")
-                    return !item !== action.payload
+			// 	if (item.id === action.payload.id) { // si ya existe
+            //         console.log("He detectado id")
+            //         return !item !== action.payload
                     
-                };
-				return item;
+            //     };
+			// 	return item;
 				
-			});
+			// });
 
-            console.log(editarCarrito)
+            const newPRoducts = state.products.find(item => item.id !== action.payload.id)
+
+            console.log(newPRoducts)
             return {
                 ...state,
-                products: editarCarrito
+                products: newPRoducts
             };
 
         default : 
