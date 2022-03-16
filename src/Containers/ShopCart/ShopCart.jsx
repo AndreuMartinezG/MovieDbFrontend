@@ -54,21 +54,9 @@ const ShopCart = (props) => {
     //         })
     // }
 
-    const onClickDelete = (movieId, userFrom) => {
+    const onClickDelete = (id) => {
 
-        // const variables = {
-        //     movieId: movieId,
-        //     userFrom: userFrom,
-        // }
-
-        // axios.post('/api/favorite/removeFromFavorite', variables)
-        //     .then(response => {
-        //         if (response.data.success) {
-        //             fetchFavoredMovie()
-        //         } else {
-        //             alert('Failed to Remove From Favorite')
-        //         }
-        //     })
+        props.id.dispatch({type: REMOVE_CART, payload: props.id})
     }
 
     // FUNCION PARA ELIMINAR TODOS LOS PRODUCTOS DEL CARRITO
@@ -150,7 +138,7 @@ const ShopCart = (props) => {
             </Popover>
 
             <td>{value.release_date}</td>
-            <td><Button onClick={() => onClickDelete(value.movieId, value.userFrom)} type="primary" danger>
+            <td><Button onClick={() => onClickDelete(value.id)} type="primary" danger>
                 remove
             </Button></td>
 
