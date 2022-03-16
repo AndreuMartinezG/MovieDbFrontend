@@ -150,7 +150,10 @@ const ShopCart = (props) => {
             </Popover>
 
             <td>{value.release_date}</td>
-            <td><button onClick={() => onClickDelete(value.movieId, value.userFrom)}> Remove </button></td>
+            <td><Button onClick={() => onClickDelete(value.movieId, value.userFrom)} type="primary" danger>
+                remove
+            </Button></td>
+
         </tr>
     })
 
@@ -164,7 +167,7 @@ const ShopCart = (props) => {
                         <tr>
                             <th>Movie Title</th>
                             <th>Release Date</th>
-                            <td>Remove from Cart</td>
+                            <th>Remove from Cart</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -174,12 +177,13 @@ const ShopCart = (props) => {
 
                 </table>
                 <div className="botonesShop">
-                    <Button onClick={() => onClickDeleteAll()} type="primary">
-                        Remove All
-                    </Button>
-                    <Button onClick={() => onClickComprar()} type="primary">
+                    <Button className='botonIndividualShop' onClick={() => onClickComprar()} type="primary" >
                         Buy
                     </Button>
+                    <Button className='botonIndividualShop' onClick={() => onClickDeleteAll()} type="primary" danger>
+                        Remove All
+                    </Button>
+
                 </div>
 
             </div>

@@ -2,6 +2,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    margin-top: 5em;
   }
   
   td,
@@ -14,10 +15,7 @@ table {
   
   tr:nth-child(even) {
     background-color: #dddddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
+
   }
 
 .designShop {
@@ -26,4 +24,8 @@ table {
 
 .botonesShop {
   margin-top: 5em;
+}
+
+.botonIndividualShop {
+  margin: 1em;
 }
