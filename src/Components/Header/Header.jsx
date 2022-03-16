@@ -31,7 +31,7 @@ const Header = (props) => {
 
         setTimeout(()=>{
             navigate("/");
-        },1500);
+        },500);
     }
 
 

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { EMPTY_CART, REMOVE_CART } from '../../redux/types';
 import { Typography, Popover, Button } from 'antd';
 import axios from 'axios';
+import moment from 'moment'
 
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../configPeliculas'
 
@@ -70,7 +71,7 @@ const ShopCart = (props) => {
         //     })
     }
 
-
+    // FUNCION PARA ELIMINAR TODOS LOS PRODUCTOS DEL CARRITO
     const onClickDeleteAll = () => {
 
         props.dispatch({ type: EMPTY_CART });
@@ -78,6 +79,58 @@ const ShopCart = (props) => {
 
     }
 
+
+    //FUNCION PARA COMPRAR
+
+    const onClickComprar =  () => {
+
+        Carrito.map(value => {
+            
+            const comprar = async () => {
+
+                let config = {
+                    headers: { Authorization: `Bearer ${props.credentials.token}` }
+                };
+
+                try {
+                    let body = {
+                        id: value.id,
+                        titulo: value.title,
+                        genero: value.genre_ids[0],
+                        adult: value.adult,
+                        fecha: value.release_date
+                    }   
+    
+                    console.log(body)
+                    let resultado = await axios.post("https://movie-db-geekshubs.herokuapp.com/peliculas", body, config);
+    
+                    console.log("resultado", resultado)
+
+                    let body2 = {
+                        precio: 5,
+                        peliculaId: value.id,
+                        usuarioId: props.credentials.usuario.id,
+                        fechaEntrega: moment().format('L')
+                    }
+
+                    let res2 = await axios.post("https://movie-db-geekshubs.herokuapp.com/pedidos", body2, config);
+
+                    console.log(res2, "esto es la respuesta del pedido")
+    
+                } catch (error) {
+    
+                }
+            }
+            
+            comprar();
+
+        })
+        alert("Pedido Realizado con EXITO!")
+        onClickDeleteAll();
+    }
+
+
+    // FUNCION PARA MAPEAR EL CARRITO
     const renderCards = Carrito.map((value, index) => {
 
 
@@ -121,17 +174,17 @@ const ShopCart = (props) => {
 
                 </table>
                 <button onClick={() => onClickDeleteAll()}> Remove All </button>
-                <button onClick={() => onClickDelete(Carrito.movieId, Carrito.userFrom)}> Comprar </button>
+                <button onClick={() => onClickComprar()}> Comprar </button>
             </div>
         )
 
     } else {
         return (
-        <div style={{ width: '85%', margin: '3rem auto' }}>
-            <Title level={2} > Carrito de {props.credentials.usuario.nombre} </Title>
-            <hr />
-            <h4>PRIMERO AÑADE PRODUCTOS AL CARRITO</h4>
-        </div>
+            <div style={{ width: '85%', margin: '3rem auto' }}>
+                <Title level={2} > Carrito de {props.credentials.usuario.nombre} </Title>
+                <hr />
+                <h4>AÑADE PRODUCTOS AL CARRITO</h4>
+            </div>
         )
     }
 }
