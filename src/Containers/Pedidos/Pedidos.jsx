@@ -59,10 +59,10 @@ const Pedidos = (props) => {
                         alt=""
                         className="widgetLgImg"
                     />
-                    <span className="widgetLgName">{value.peliculaId}</span>
+                    <span className="widgetLgName">{value.Titulo_Alquilado}</span>
                 </td>
-                <td className="widgetLgDate">{value.fechaEntrega}</td>
-                <td className="widgetLgAmount">{value.precio}</td>
+                <td className="widgetLgDate">{value.Fecha_Alquiler}</td>
+                <td className="widgetLgAmount">{value.Precio}</td>
                 <td className="widgetLgStatus">
                     <Button type="Approved" />
                 </td>
