@@ -56,7 +56,9 @@ const ShopCart = (props) => {
 
         props.dispatch({ type: EMPTY_CART });
         setControlCarrito(false)
-        window.location.reload()
+        setTimeout(()=>{
+            window.location.reload()
+        },3000)
 
     }
 
@@ -179,10 +181,6 @@ const ShopCart = (props) => {
         )
     }
 }
-
-
-
-
 
 
 export default connect((state) => ({
