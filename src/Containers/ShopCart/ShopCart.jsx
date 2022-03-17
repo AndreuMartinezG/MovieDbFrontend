@@ -23,9 +23,9 @@ const ShopCart = (props) => {
 
     useEffect(() => {
         // fetchFavoredMovie()
-        console.log(props)
         setCarrito(props.cart.products)
-        console.log(Carrito)
+        console.log("soy carrito", Carrito)
+        console.log("Soy carrito.length", Carrito.length)
 
     }, [])
 
@@ -37,27 +37,26 @@ const ShopCart = (props) => {
     })
 
     useEffect(() => {
-
+        console.log("SOY EL USE EFECT DE CONTROL CARRITO", Carrito)
+        if (Carrito.length !== 0){
+            setControlCarrito(true)
+            console.log("soy true")
+        }else {
+            setControlCarrito(false)
+            console.log("soy false")
+        }
     }, [ControlCarrito])
 
 
-    // const fetchFavoredMovie = () => {
-    //     axios.post('/api/favorite/getFavoredMovie', variable)
-    //         .then(response => {
-    //             if (response.data.success) {
-    //                 console.log(response.data.favorites)
-    //                 setFavorites(response.data.favorites)
-    //                 setLoading(false)
-    //             } else {
-    //                 alert('Failed to get subscription videos')
-    //             }
-    //         })
-    // }
+    //ELIMINO SOLO UN ITEM DEL CARRITO
 
-    const onClickDelete = (id) => {
-
-        props.id.dispatch({type: REMOVE_CART, payload: props.id})
+    const onClickDelete = (value) => {
+        console.log(value, "Soy value")
+        props.dispatch({type: REMOVE_CART, payload: value})
+        setControlCarrito(false)
+        window.location.reload()
     }
+
 
     // FUNCION PARA ELIMINAR TODOS LOS PRODUCTOS DEL CARRITO
     const onClickDeleteAll = () => {
@@ -136,9 +135,8 @@ const ShopCart = (props) => {
             <Popover content={content} title={`${value.title}`}>
                 <td>{value.title}</td>
             </Popover>
-
             <td>{value.release_date}</td>
-            <td><Button onClick={() => onClickDelete(value.id)} type="primary" danger>
+            <td><Button key={value.id} onClick={() => onClickDelete(value)} type="primary" danger>
                 remove
             </Button></td>
 

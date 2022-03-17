@@ -39,9 +39,6 @@ const cartReducer = (state = initialState, action) => {
         case REMOVE_CART:
             // let arrayProducts = state.products
 
-            console.log("Estoy en REMOVE_CART")
-
-
             ///////////////////////////////////////////////////////////////////////OPCION 1//////////////////////////
             // let editarCarrito = state.products.map( (item) => {
             // 	if (item.id === action.payload.id) { // si ya existe
@@ -142,7 +139,6 @@ const cartReducer = (state = initialState, action) => {
 
 
             ///////////////////////////////////////////////////////////////////////OPCION 7//////////////////////////
-
             let totalCarrito = [];
 
             for (let i = 0; i < state.products.length; i++) {
