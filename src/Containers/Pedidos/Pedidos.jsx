@@ -34,9 +34,10 @@ const Pedidos = (props) => {
 
             let body = props.credentials.usuario.id
             console.log(body, "ESTO ES EL BODY")
-            let resultado = await axios.get(`https://movie-db-geekshubs.herokuapp.com/pedidos/${props.credentials.usuario.id}`, body, config);
+            let resultado = await axios.get(`https://movie-db-geekshubs.herokuapp.com/pedidos/${props.credentials.usuario.id}`, config);
 
             console.log(resultado)
+
         }catch (error) {
             console.log(error)
         }
