@@ -49,7 +49,6 @@ const ShopCart = (props) => {
 
 
     //ELIMINO SOLO UN ITEM DEL CARRITO
-
     const onClickDelete = (value) => {
         console.log(value, "Soy value")
         props.dispatch({type: REMOVE_CART, payload: value})
@@ -57,7 +56,7 @@ const ShopCart = (props) => {
         window.location.reload()
     }
 
-
+    
     // FUNCION PARA ELIMINAR TODOS LOS PRODUCTOS DEL CARRITO
     const onClickDeleteAll = () => {
 
