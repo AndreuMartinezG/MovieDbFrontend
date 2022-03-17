@@ -24,8 +24,6 @@ const ShopCart = (props) => {
     useEffect(() => {
         // fetchFavoredMovie()
         setCarrito(props.cart.products)
-        console.log("soy carrito", Carrito)
-        console.log("Soy carrito.length", Carrito.length)
 
     }, [])
 
@@ -37,31 +35,28 @@ const ShopCart = (props) => {
     })
 
     useEffect(() => {
-        console.log("SOY EL USE EFECT DE CONTROL CARRITO", Carrito)
         if (Carrito.length !== 0){
             setControlCarrito(true)
-            console.log("soy true")
         }else {
             setControlCarrito(false)
-            console.log("soy false")
         }
     }, [ControlCarrito])
 
 
     //ELIMINO SOLO UN ITEM DEL CARRITO
     const onClickDelete = (value) => {
-        console.log(value, "Soy value")
         props.dispatch({type: REMOVE_CART, payload: value})
         setControlCarrito(false)
         window.location.reload()
     }
 
-    
+
     // FUNCION PARA ELIMINAR TODOS LOS PRODUCTOS DEL CARRITO
     const onClickDeleteAll = () => {
 
         props.dispatch({ type: EMPTY_CART });
         setControlCarrito(false)
+        window.location.reload()
 
     }
 
