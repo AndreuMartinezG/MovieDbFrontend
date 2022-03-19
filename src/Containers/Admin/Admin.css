@@ -1,11 +1,19 @@
 .designAdmin {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: row;
     width: 100vw;
 }
 
 .designAdminBody {
     width: 80.5vw;
+    flex: 4;
+    
+    box-sizing:border-box;
+}
+
+.designwidgetsAdmin {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    box-sizing:border-box;
 }
