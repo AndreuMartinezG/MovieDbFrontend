@@ -1,6 +1,5 @@
 import './SideBarProfile.css';
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 
 import "./SideBarProfile.css";
 import {
@@ -15,17 +14,8 @@ import { Link } from "react-router-dom";
 
 const SideBarAdmin = () => {
 
-    let navigate = useNavigate();
 
     const [opened, setOpened] = useState(false);
-
-    const navegar = (lugar) => {
-
-        setTimeout(() => {
-            navigate(lugar);
-        }, 200);
-
-    }
 
     return (
         <div className="sidebar">
