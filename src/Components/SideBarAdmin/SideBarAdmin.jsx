@@ -19,42 +19,54 @@ const SideBarAdmin = () => {
         <div className="sidebar">
             <div className="sidebarWrapper">
                 <div className="sidebarMenu">
-                    <h3 className="sidebarTitle">Dashboard</h3>
+                    <h3 className="sidebarTitle">Info</h3>
                     <ul className="sidebarList">
 
-                        <Link to="/profile" className="link">
+                        <Link to="/admin" className="link">
                             <li className="sidebarListItem">
                                 <PermIdentity className="sidebarIcon" />
-                                Area Usuario
+                                Area Admin
                             </li>
                         </Link>
                         <Link to="/datosPerfil" className="link">
                             <li className="sidebarListItem">
                                 <PermIdentity className="sidebarIcon" />
-                                Datos Perfil
+                                Usuarios Registrados
                             </li>
                         </Link>
                         <Link to="/shopcart" className="link">
                             <li className="sidebarListItem">
                                 <Storefront className="sidebarIcon" />
-                                Carrito
+                                Peliculas Registradas
                             </li>
                         </Link>
                         <Link to="/pedidos" className="link">
                             <li className="sidebarListItem">
                                 <AttachMoney className="sidebarIcon" />
-                                Pedidos
+                                Pedidos Registrados
                             </li>
                         </Link>
                     </ul>
                 </div>
                 <div className="sidebarMenu">
-                    <h3 className="sidebarTitle">Quick Menu</h3>
+                    <h3 className="sidebarTitle">Actions</h3>
                     <ul className="sidebarList">
                         <Link to="/peliculas" className="link">
                             <li className="sidebarListItem">
                                 <PermIdentity className="sidebarIcon" />
-                                Peliculas
+                                Borrar Usuarios
+                            </li>
+                        </Link>
+                        <Link to="/peliculas" className="link">
+                            <li className="sidebarListItem">
+                                <PermIdentity className="sidebarIcon" />
+                                Borrar Peliculas
+                            </li>
+                        </Link>
+                        <Link to="/peliculas" className="link">
+                            <li className="sidebarListItem">
+                                <PermIdentity className="sidebarIcon" />
+                                Borrar Pedidos
                             </li>
                         </Link>
                         <Link to="/series" className="link">

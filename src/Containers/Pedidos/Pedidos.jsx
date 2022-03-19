@@ -79,7 +79,7 @@ const Pedidos = (props) => {
             <SideBarProfile />
             <div className="userUpdate2 widthPedidos">
                 <div className="widgetLg">
-                    <h3 className="widgetLgTitle">Pedidos</h3>
+                    <h1>Pedidos</h1>
                     <table className="widgetLgTable">
                         <thead>
                             <tr className="widgetLgTr">
