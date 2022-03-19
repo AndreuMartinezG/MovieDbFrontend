@@ -6,6 +6,7 @@ import axios from "axios";
 
 
 import './RegistredFilms.css'
+import SideBarAdmin from "../../Components/SideBarAdmin/SideBarAdmin";
 
 const RegistredFilms = (props) => {
 
@@ -18,7 +19,7 @@ const RegistredFilms = (props) => {
     }, [])
 
     useEffect(() => {
-        if (props.credentials.token === '') {
+        if (props.credentials.token === '' || props.credentials.usuario.rol === false) {
             navigate("/");
         }
 
@@ -32,10 +33,7 @@ const RegistredFilms = (props) => {
         };
 
         try {
-
-            let body = props.credentials.usuario.id
-            let resultado = await axios.get(`https://movie-db-geekshubs.herokuapp.com/pedidos/${props.credentials.usuario.id}`, config);
-
+            let resultado = await axios.get(`https://movie-db-geekshubs.herokuapp.com/peliculas`, config);
             setFilms(resultado.data)
 
         } catch (error) {
@@ -52,18 +50,12 @@ const RegistredFilms = (props) => {
         return (
             <tr key={index} className="widgetLgTr">
                 <td className="widgetLgUser">
-                    <img
-                        src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt=""
-                        className="widgetLgImg"
-                    />
-                    <span className="widgetLgName">{value.Titulo_Alquilado}</span>
+                    <span className="widgetLgName">{value.titulo}</span>
                 </td>
-                <td className="widgetLgDate">{value.Fecha_Alquiler}</td>
-                <td className="widgetLgAmount">{value.Precio}</td>
-                <td className="widgetLgStatus">
-                    <Button type="Approved" />
-                </td>
+                <td className="widgetLgDate">{value.fecha}</td>
+                <td className="widgetLgAmount">{value.genero}</td>
+                <td className="widgetLgAmount">{value.id}</td>
+
             </tr>
         )
 
@@ -76,21 +68,21 @@ const RegistredFilms = (props) => {
 
     return (
         <div className="designPedidos">
-            <SideBarProfile />
+            <SideBarAdmin />
             <div className="userUpdate2 widthPedidos">
                 <div className="widgetLg">
-                    <h1>Pedidos</h1>
+                    <h1>Peliculas Registradas</h1>
                     <table className="widgetLgTable">
                         <thead>
                             <tr className="widgetLgTr">
-                                <th className="widgetLgTh">Film</th>
-                                <th className="widgetLgTh">Date</th>
-                                <th className="widgetLgTh">Price</th>
-                                <th className="widgetLgTh">Status</th>
+                                <th className="widgetLgTh">Pelicula</th>
+                                <th className="widgetLgTh">Fecha Estreno</th>
+                                <th className="widgetLgTh">Genero</th>
+                                <th className="widgetLgTh">ID</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {renderCarrito}
+                            {renderFilms}
                         </tbody>
                     </table>
                 </div>
