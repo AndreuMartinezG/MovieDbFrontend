@@ -1,95 +1,77 @@
 import "./WidgetSmAdmin.css";
 import { Visibility } from "@material-ui/icons";
 
-const WidgetSmAdmin = () => {
+import React, { useEffect, useState } from "react";
+import { connect } from 'react-redux';
+import axios from "axios";
+
+const WidgetSmAdmin = (props) => {
+
+  const [Usuarios, setUsuarios] = useState([])
+
+  useEffect(() => {
+    traerUsuarios()
+  }, [])
+
+  const traerUsuarios = async () => {
+
+    let config = {
+      headers: { Authorization: `Bearer ${props.credentials.token}` }
+    };
+
+    try {
+
+      let resultado = await axios.get(`https://movie-db-geekshubs.herokuapp.com/usuarios`, config);
+
+      let reversed = resultado.data.reverse();
+      setUsuarios(reversed)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+  const renderUsuarios = Usuarios.map((value, index) => {
+    
+
+
+    return (
+        <li key={index} className="widgetSmListItem">
+          <img
+            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            alt=""
+            className="widgetSmImg"
+          />
+          <div className="widgetSmUser">
+            <span className="widgetSmUsername">{value.nombre} {value.apellido}</span>
+            <span className="widgetSmUserTitle">Software Engineer</span>
+          </div>
+          <button className="widgetSmButton">
+            <Visibility className="widgetSmIcon" />
+            New
+          </button>
+        </li>
+    )
+
+  })
 
 
 
-  
 
   return (
     <div className="widgetSm">
-      <span className="widgetSmTitle">New Join Members</span>
+      <span className="widgetSmTitle">Nuevos Miembros</span>
       <ul className="widgetSmList">
-        <li className="widgetSmListItem">
-          <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="widgetSmImg"
-          />
-          <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
-          </div>
-          <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-          </button>
-        </li>
-        <li className="widgetSmListItem">
-          <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="widgetSmImg"
-          />
-          <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
-          </div>
-          <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-          </button>
-        </li>
-        <li className="widgetSmListItem">
-          <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="widgetSmImg"
-          />
-          <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
-          </div>
-          <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-          </button>
-        </li>
-        <li className="widgetSmListItem">
-          <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="widgetSmImg"
-          />
-          <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
-          </div>
-          <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-          </button>
-        </li>
-        <li className="widgetSmListItem">
-          <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="widgetSmImg"
-          />
-          <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
-          </div>
-          <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-          </button>
-        </li>
+        {renderUsuarios}
       </ul>
     </div>
   );
+
 }
 
-
-export default WidgetSmAdmin;
+export default connect((state) => ({
+  cart: state.cart,
+  credentials: state.credentials,
+  search: state.search
+}))(WidgetSmAdmin);

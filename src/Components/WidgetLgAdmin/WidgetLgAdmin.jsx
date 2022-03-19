@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from "axios";
 import "./WidgetLgAdmin.css";
@@ -9,18 +8,10 @@ const WidgetLgAdmin = (props) => {
 
     const [Pedidos, setPedidos] = useState([])
 
-    let navigate = useNavigate()
-
     useEffect(() => {
         traerPedidos()
     }, [])
 
-    useEffect(() => {
-        if (props.credentials.token === '') {
-            navigate("/");
-        }
-
-    })
 
     const traerPedidos = async () => {
 
@@ -75,7 +66,7 @@ const WidgetLgAdmin = (props) => {
     };
     return (
         <div className="widgetLgAdmin">
-            <h3 className="widgetLgTitleAdmin">Latest transactions</h3>
+            <h3 className="widgetLgTitleAdmin">Ultimas Peliculas Vendidas</h3>
             <table className="widgetLgTableAdmin">
                 <tbody>
                 <tr className="widgetLgTr">
