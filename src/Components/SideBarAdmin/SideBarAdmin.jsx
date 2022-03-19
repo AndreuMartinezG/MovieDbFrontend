@@ -1,7 +1,6 @@
-import './SideBarProfile.css';
 import React, { useState } from 'react';
 
-import "./SideBarProfile.css";
+import "./SideBarAdmin.css";
 import {
 
     PermIdentity,
@@ -15,7 +14,6 @@ import { Link } from "react-router-dom";
 const SideBarAdmin = () => {
 
 
-    const [opened, setOpened] = useState(false);
 
     return (
         <div className="sidebar">
