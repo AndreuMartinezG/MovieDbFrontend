@@ -34,7 +34,7 @@ const SideBarAdmin = () => {
                                 Usuarios Registrados
                             </li>
                         </Link>
-                        <Link to="/shopcart" className="link">
+                        <Link to="/registredFilms" className="link">
                             <li className="sidebarListItem">
                                 <Storefront className="sidebarIcon" />
                                 Peliculas Registradas

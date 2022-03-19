@@ -15,6 +15,7 @@ import ModificarPerfil from './Containers/ModificarPerfil/ModificarPerfil';
 import DetallesPelicula from './Containers/DetallesPelicula/DetallesPelicula';
 import ResultadoBusqueda from './Containers/ResultadoBusqueda/ResultadoBusqueda';
 import RegistredUsers from './Containers/RegistredUsers/RegistredUsers';
+import RegistredFilms from './Containers/RegistredFilms/RegistredFilms';
 
 
 
@@ -40,6 +41,7 @@ function App() {
           <Route path='/detallespelicula/:movieId' element={<DetallesPelicula />} />
           <Route path='/resultadobusqueda' element={<ResultadoBusqueda />} />
           <Route path='/registredUsers' element={<RegistredUsers />} />
+          <Route path='/registredFilms' element={<RegistredFilms />} />
         </Routes>
 
         <Footer />
