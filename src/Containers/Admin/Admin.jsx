@@ -14,6 +14,9 @@ const Admin = (props) => {
             <SideBarAdmin />
             <div className="designAdminBody">
             <Chart data={userData} title="User Analytics" grid dataKey="Active User"/>
+            <div className="designwidgetsAdmin">
+                
+            </div>
             </div>
         </div>
     );
