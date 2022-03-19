@@ -1,7 +1,5 @@
 import './SideBarProfile.css';
 import React, { useState } from 'react';
-import { Drawer, Burger } from '@mantine/core';
-import { useNavigate } from "react-router-dom";
 
 import "./SideBarProfile.css";
 import {
@@ -16,17 +14,10 @@ import { Link } from "react-router-dom";
 
 const SideBarProfile = () => {
 
-  let navigate = useNavigate();
 
   const [opened, setOpened] = useState(false);
 
-  const navegar = (lugar) => {
 
-    setTimeout(() => {
-      navigate(lugar);
-    }, 200);
-
-  }
 
   return (
     <div className="sidebar">
