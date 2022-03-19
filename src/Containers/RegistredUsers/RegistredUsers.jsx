@@ -45,9 +45,6 @@ const RegistredUsers = (props) => {
 
     const renderUsuarios = Usuarios.map((value, index) => {
 
-        const Button = ({ type }) => {
-            return <button className={"widgetLgButton " + type}>{type}</button>;
-        };
 
         return (
             <tr key={index} className="widgetLgTr">
