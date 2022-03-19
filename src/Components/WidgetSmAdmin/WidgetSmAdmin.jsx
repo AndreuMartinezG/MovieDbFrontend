@@ -1,7 +1,7 @@
 import "./WidgetSmAdmin.css";
 import { Visibility } from "@material-ui/icons";
 
-export default function WidgetSm() {
+const WidgetSmAdmin = () => {
   return (
     <div className="widgetSm">
       <span className="widgetSmTitle">New Join Members</span>
@@ -85,3 +85,6 @@ export default function WidgetSm() {
     </div>
   );
 }
+
+
+export default WidgetSmAdmin;

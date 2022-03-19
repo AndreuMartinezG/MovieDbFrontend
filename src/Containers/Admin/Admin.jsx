@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { userData } from "./dummyData";
 
 import './Admin.css';
+import WidgetSmAdmin from "../../Components/WidgetSmAdmin/WidgetSmAdmin";
 
 
 const Admin = (props) => {
@@ -15,7 +16,7 @@ const Admin = (props) => {
             <div className="designAdminBody">
             <Chart data={userData} title="User Analytics" grid dataKey="Active User"/>
             <div className="designwidgetsAdmin">
-                
+                <WidgetSmAdmin />
             </div>
             </div>
         </div>
