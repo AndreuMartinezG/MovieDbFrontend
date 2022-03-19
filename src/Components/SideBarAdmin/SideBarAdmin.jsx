@@ -28,7 +28,7 @@ const SideBarAdmin = () => {
                                 Area Admin
                             </li>
                         </Link>
-                        <Link to="/datosPerfil" className="link">
+                        <Link to="/registredUsers" className="link">
                             <li className="sidebarListItem">
                                 <PermIdentity className="sidebarIcon" />
                                 Usuarios Registrados
