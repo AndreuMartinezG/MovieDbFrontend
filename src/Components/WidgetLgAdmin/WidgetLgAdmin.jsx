@@ -1,82 +1,99 @@
+
+import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import axios from "axios";
 import "./WidgetLgAdmin.css";
 
-const WidgetLgAdmin = () => {
-  const Button = ({ type }) => {
-    return <button className={"widgetLgButton " + type}>{type}</button>;
-  };
-  return (
-    <div className="widgetLgAdmin">
-      <h3 className="widgetLgTitleAdmin">Latest transactions</h3>
-      <table className="widgetLgTableAdmin">
-        <tr className="widgetLgTr">
-          <th className="widgetLgTh">Customer</th>
-          <th className="widgetLgTh">Date</th>
-          <th className="widgetLgTh">Amount</th>
-          <th className="widgetLgTh">Status</th>
-        </tr>
-        <tr className="widgetLgTr">
-          <td className="widgetLgUser">
-            <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt=""
-              className="widgetLgImg"
-            />
-            <span className="widgetLgName">Susan Carol</span>
-          </td>
-          <td className="widgetLgDate">2 Jun 2021</td>
-          <td className="widgetLgAmount">$122.00</td>
-          <td className="widgetLgStatus">
-            <Button type="Approved" />
-          </td>
-        </tr>
-        <tr className="widgetLgTr">
-          <td className="widgetLgUser">
-            <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt=""
-              className="widgetLgImg"
-            />
-            <span className="widgetLgName">Susan Carol</span>
-          </td>
-          <td className="widgetLgDate">2 Jun 2021</td>
-          <td className="widgetLgAmount">$122.00</td>
-          <td className="widgetLgStatus">
-            <Button type="Declined" />
-          </td>
-        </tr>
-        <tr className="widgetLgTr">
-          <td className="widgetLgUser">
-            <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt=""
-              className="widgetLgImg"
-            />
-            <span className="widgetLgName">Susan Carol</span>
-          </td>
-          <td className="widgetLgDate">2 Jun 2021</td>
-          <td className="widgetLgAmount">$122.00</td>
-          <td className="widgetLgStatus">
-            <Button type="Pending" />
-          </td>
-        </tr>
-        <tr className="widgetLgTr">
-          <td className="widgetLgUser">
-            <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt=""
-              className="widgetLgImg"
-            />
-            <span className="widgetLgName">Susan Carol</span>
-          </td>
-          <td className="widgetLgDate">2 Jun 2021</td>
-          <td className="widgetLgAmount">$122.00</td>
-          <td className="widgetLgStatus">
-            <Button type="Approved" />
-          </td>
-        </tr>
-      </table>
-    </div>
-  );
+const WidgetLgAdmin = (props) => {
+
+    const [Pedidos, setPedidos] = useState([])
+
+    let navigate = useNavigate()
+
+    useEffect(() => {
+        traerPedidos()
+    }, [])
+
+    useEffect(() => {
+        if (props.credentials.token === '') {
+            navigate("/");
+        }
+
+    })
+
+    const traerPedidos = async () => {
+
+        let config = {
+            headers: { Authorization: `Bearer ${props.credentials.token}` }
+        };
+
+        try {
+
+            let resultado = await axios.get(`https://movie-db-geekshubs.herokuapp.com/pedidos/avanzado`, config);
+            
+            let cuted = resultado.data.slice(-4)
+            let reversed = cuted.reverse();
+            setPedidos(reversed)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const renderCarrito = Pedidos.map((value, index) => {
+
+        const Button = ({ type }) => {
+            return <button className={"widgetLgButton " + type}>{type}</button>;
+        };
+
+        return (
+            <tr key={index} className="widgetLgTr">
+                <td className="widgetLgUser">
+                    <img
+                        src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                        alt=""
+                        className="widgetLgImg"
+                    />
+                    <span className="widgetLgName">{value.correo}</span>
+                </td>
+                <td className="widgetLgDate">{value.Nombre}</td>
+                <td className="widgetLgDate">{value.Fecha_Alquiler}</td>
+                <td className="widgetLgAmount">{value.Titulo_Alquilado}</td>
+                <td className="widgetLgStatus">
+                    <Button type="Approved" />
+                </td>
+            </tr>
+        )
+
+    })
+
+
+
+    const Button = ({ type }) => {
+        return <button className={"widgetLgButton " + type}>{type}</button>;
+    };
+    return (
+        <div className="widgetLgAdmin">
+            <h3 className="widgetLgTitleAdmin">Latest transactions</h3>
+            <table className="widgetLgTableAdmin">
+                <tbody>
+                <tr className="widgetLgTr">
+                    <th className="widgetLgTh">Email</th>
+                    <th className="widgetLgTh">Nombre</th>
+                    <th className="widgetLgTh">Fecha</th>
+                    <th className="widgetLgTh">Titulo</th>
+                    <th className="widgetLgTh">Status</th>
+                </tr>
+                {renderCarrito}
+                </tbody>
+            </table>
+        </div>
+    );
 }
 
-export default WidgetLgAdmin;
+export default connect((state) => ({
+    cart: state.cart,
+    credentials: state.credentials,
+    search: state.search
+}))(WidgetLgAdmin);
