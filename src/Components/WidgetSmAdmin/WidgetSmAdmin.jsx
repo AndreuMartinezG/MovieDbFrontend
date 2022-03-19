@@ -39,7 +39,7 @@ const WidgetSmAdmin = (props) => {
     return (
         <li key={index} className="widgetSmListItem">
           <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             alt=""
             className="widgetSmImg"
           />

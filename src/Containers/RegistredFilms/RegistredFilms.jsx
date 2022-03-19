@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import SideBarProfile from "../../Components/SideBarProfile/SideBarProfile";
 import { connect } from 'react-redux';
 import axios from "axios";
 
