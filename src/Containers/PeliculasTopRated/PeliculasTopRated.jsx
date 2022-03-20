@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { raiz } from '../../utiles';
 import { connect } from 'react-redux';
-import './Peliculas.css'
+import './PeliculasTopRated.css'
 import { Typography, Row } from 'antd';
 import MainImage from '../../Components/MainImg/MainImage';
 import { API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, IMAGE_SIZE, } from '../../configPeliculas';
@@ -18,7 +18,7 @@ const { Title } = Typography;
 
 
 
-const Peliculas = (props) => {
+const PeliculasTopRated = (props) => {
 
     let navigate = useNavigate();
 
@@ -191,4 +191,4 @@ const Peliculas = (props) => {
 
 export default connect((state) => ({
     credentials: state.credentials
-}))(Peliculas);
+}))(PeliculasTopRated);

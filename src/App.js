@@ -22,6 +22,7 @@ import BorrarPelicula from './Containers/BorrarPelicula/BorrarPelicula';
 import BorrarPedidos from './Containers/BorrarPedidos/BorrarPedidos';
 import Series from './Containers/Series/Series';
 import DetallesSeries from './Containers/DetallesSeries/DetallesSeries';
+import PeliculasTopRated from './Containers/PeliculasTopRated/PeliculasTopRated';
 
 
 
@@ -40,6 +41,7 @@ function App() {
           <Route path='/profile' element={<Profile />} />
           <Route path='/admin' element={<Admin/>} />
           <Route path='/peliculas' element={<Peliculas /> } />
+          <Route path='/peliculasTopRated' element={<PeliculasTopRated /> } />
           <Route path='/shopcart' element={<ShopCart />} />
           <Route path='/pedidos' element={<Pedidos />} />
           <Route path='/datosPerfil' element={<DatosPerfil />} />
