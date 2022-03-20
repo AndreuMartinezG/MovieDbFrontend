@@ -33,10 +33,7 @@ const BorrarUsuarios = (props) => {
         };
 
         try {
-            console.log(value, "SOY VALUEEE")
             let resultado = await axios.delete(`https://movie-db-geekshubs.herokuapp.com/usuarios/${value.id}`, config);
-
-            console.log(resultado, "SOY Resultado de DELTEEEEEEE")
             alert("Usuario Eliminado con exito")
             window.location.reload()
 
