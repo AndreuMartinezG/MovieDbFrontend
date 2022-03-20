@@ -38,16 +38,16 @@ const SideBarProfile = () => {
                 Datos Perfil
               </li>
             </Link>
-            <Link to="/shopcart" className="link">
-              <li className="sidebarListItem">
-                <Storefront className="sidebarIcon" />
-                Carrito
-              </li>
-            </Link>
             <Link to="/pedidos" className="link">
               <li className="sidebarListItem">
                 <AttachMoney className="sidebarIcon" />
                 Pedidos
+              </li>
+            </Link>
+            <Link to="/shopcart" className="link">
+              <li className="sidebarListItem">
+                <Storefront className="sidebarIcon" />
+                Carrito
               </li>
             </Link>
           </ul>
