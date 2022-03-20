@@ -133,7 +133,7 @@ const Login = (props) => {
                     handleReset,
                 } = props;
                 return (
-                    <div className="app">
+                    <div className="app bg-color">
 
                         <Title level={1}>Log In</Title>
                         <hr />
