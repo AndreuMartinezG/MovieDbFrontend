@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { LOGOUT, MOVIES_TITLE } from '../../redux/types';
+import { LOGOUT, MOVIES_TITLE, EMPTY_CART } from '../../redux/types';
 import {connect} from 'react-redux';
 import 'antd/dist/antd.css';
 import { Input, Button } from 'antd';
@@ -27,7 +27,9 @@ const Header = (props) => {
 
     const logOut = () => {
         //Borrar de RDX las credenciales
+        props.dispatch({type:EMPTY_CART});
         props.dispatch({type:LOGOUT});
+        
 
         setTimeout(()=>{
             navigate("/");
