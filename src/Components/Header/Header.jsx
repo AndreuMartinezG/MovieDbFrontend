@@ -107,9 +107,10 @@ const Header = (props) => {
             <div className='designHeader'>
                 <div className="headerSpace linksDesign">
                     <div className="link" onClick={() => navegar("/")}>Home</div>
-                    <div className="link" onClick={() => navegar("/")}>Peliculas</div>
+                    <div className="link" onClick={() => navegar("/peliculas")}>Peliculas</div>
                     <div className="link" onClick={() => navegar("/")}>Series</div>
                     <div className="link" onClick={() => navegar("/profile")}>Profile</div>
+                    <div className="link" onClick={() => navegar("/shopcart")}>Carrito</div>
                 </div>
                 <div className="headerSpace searchSpace">
                     <Input.Group compact>
