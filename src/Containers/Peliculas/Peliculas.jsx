@@ -4,11 +4,15 @@ import axios from 'axios';
 import { raiz } from '../../utiles';
 import { connect } from 'react-redux';
 import './Peliculas.css'
-import { Typography, Row, Button } from 'antd';
+import { Typography, Row } from 'antd';
 import MainImage from '../../Components/MainImg/MainImage';
 import { API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, IMAGE_SIZE, } from '../../configPeliculas';
 import GridCard from '../../Components/GridCard/GridCard';
+import 'antd/dist/antd.css';
+import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd';
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
+import { Link } from "react-router-dom";
 const { Title } = Typography;
 
 
@@ -48,6 +52,27 @@ const Peliculas = (props) => {
 
 
     // FUNCIONES LOCALES
+
+    function handleMenuClick(e) {
+        message.info('Click on menu item.');
+        console.log('click', e);
+    }
+
+    const menu = (
+        <Menu onClick={handleMenuClick}>
+            <Menu.Item key="1" icon={<UserOutlined />}>
+                <Link to="/datosPerfil" className="link">
+                        Datos Perfil
+                </Link>
+            </Menu.Item>
+            <Menu.Item key="2" icon={<UserOutlined />}>
+                2nd menu item
+            </Menu.Item>
+            <Menu.Item key="3" icon={<UserOutlined />}>
+                3rd menu item
+            </Menu.Item>
+        </Menu>
+    );
 
     const traePelis = async (path) => {
 
@@ -94,7 +119,19 @@ const Peliculas = (props) => {
                 {/*BODY*/}
 
                 <div className="bodyNovedades">
-                    <Title level={2}>Novedades</Title>
+                    <div className="rowMainPeliculas">
+                        <Title level={2}>Novedades</Title>
+                        <div className="spaceWrap">
+                            <Space wrap>
+                                <Dropdown overlay={menu}>
+                                    <Button>
+                                        Filtros <DownOutlined />
+                                    </Button>
+                                </Dropdown>
+                            </Space>
+                        </div>
+                    </div>
+
                     <hr />
 
 
@@ -120,9 +157,9 @@ const Peliculas = (props) => {
                     </Row>
 
                 </div>
-                
+
                 <div className="botonMasNovedades">
-                    
+
                     <Button type="primary" onClick={() => masPelis()} >{LoadingMore && "LOAD MORE"}{Loading && `Loading..`}</Button>
                 </div>
             </div>

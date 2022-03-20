@@ -26,13 +26,6 @@ const SideBarProfile = () => {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-
-            <Link to="/profile" className="link">
-              <li className="sidebarListItem">
-                <PermIdentity className="sidebarIcon" />
-                Area Usuario
-              </li>
-            </Link>
             <Link to="/datosPerfil" className="link">
               <li className="sidebarListItem">
                 <Settings className="sidebarIcon" />

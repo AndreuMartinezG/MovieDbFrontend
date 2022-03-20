@@ -127,7 +127,7 @@ const Header = (props) => {
                     <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large" /></div>
                     <div className="link" onClick={() => navegar("/peliculas")}><Theaters /> Peliculas</div>
                     <div className="link" onClick={() => navegar("/series")}><Tv /> Series</div>
-                    <div className="link" onClick={() => navegar("/profile")}><PermIdentity />Perfil</div>
+                    <div className="link" onClick={() => navegar("/datosPerfil")}><PermIdentity />Perfil</div>
                     <div className="link topbarIconContainer" onClick={() => navegar("/shopcart")}>
                         <AddShoppingCart />
                         {ContadorPedido !== 0 ? <span className="topIconBadge">{ContadorPedido}</span> : null}
@@ -154,7 +154,7 @@ const Header = (props) => {
                     <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large" /></div>
                     <div className="link" onClick={() => navegar("/peliculas")}><Theaters /> Peliculas</div>
                     <div className="link" onClick={() => navegar("/series")}><Tv /> Series</div>
-                    <div className="link" onClick={() => navegar("/profile")}><PermIdentity />Perfil</div>
+                    <div className="link" onClick={() => navegar("/datosPerfil")}><PermIdentity />Perfil</div>
                     <div className="link topbarIconContainer" onClick={() => navegar("/shopcart")}>
                         <AddShoppingCart />
                         {ContadorPedido !== 0 ? <span className="topIconBadge">{ContadorPedido}</span> : null}
