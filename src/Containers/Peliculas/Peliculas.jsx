@@ -70,7 +70,7 @@ const Peliculas = (props) => {
                 </Link>
             </Menu.Item>
             <Menu.Item key="3" icon={<UserOutlined />}>
-                <Link to="/peliculas" className="link">
+                <Link to="/peliculasUltimas" className="link">
                         Ultimas
                 </Link>
             </Menu.Item>

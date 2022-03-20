@@ -43,7 +43,7 @@ function App() {
           <Route path='/admin' element={<Admin/>} />
           <Route path='/peliculas' element={<Peliculas /> } />
           <Route path='/peliculasTopRated' element={<PeliculasTopRated /> } />
-          <Route path='/peliculasPopular' element={<PeliculasPopulares /> } />
+          <Route path='/peliculasPopulares' element={<PeliculasPopulares /> } />
           <Route path='/shopcart' element={<ShopCart />} />
           <Route path='/pedidos' element={<Pedidos />} />
           <Route path='/datosPerfil' element={<DatosPerfil />} />

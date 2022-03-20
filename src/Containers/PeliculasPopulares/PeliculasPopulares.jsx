@@ -31,7 +31,9 @@ const PeliculasPopulares = (props) => {
 
     //useEffect
     useEffect(() => {
-        const endpoint = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+        const endpoint = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        
+
         traePelis(endpoint);
     }, []);
 
@@ -70,7 +72,7 @@ const PeliculasPopulares = (props) => {
                 </Link>
             </Menu.Item>
             <Menu.Item key="3" icon={<UserOutlined />}>
-                <Link to="/peliculas" className="link">
+                <Link to="/peliculasUltimas" className="link">
                         Ultimas
                 </Link>
             </Menu.Item>
@@ -106,7 +108,7 @@ const PeliculasPopulares = (props) => {
     };
 
     const masPelis = async () => {
-        const endpoint = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`
+        const endpoint = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`
         traePelis(endpoint)
         setLoading(true)
         setLoadingMore(false)
@@ -128,7 +130,7 @@ const PeliculasPopulares = (props) => {
 
                 <div className="bodyNovedades">
                     <div className="rowMainPeliculas">
-                        <Title level={2}>Novedades</Title>
+                        <Title level={2}>Populares</Title>
                         <div className="spaceWrap">
                             <Space wrap>
                                 <Dropdown overlay={menu}>
