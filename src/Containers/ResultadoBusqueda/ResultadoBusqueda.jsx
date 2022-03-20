@@ -85,9 +85,9 @@ const ResultadoBusqueda = (props) => {
                 </div>
 
 
-                <div className="botonMasNovedades">
-                    <button>LOAD MORE</button>
-                </div>
+                {/* <div className="botonMasNovedades" >
+                    <button disabled>LOAD MORE</button>
+                </div> */}
             </div>
         )
     } else {
