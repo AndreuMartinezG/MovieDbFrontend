@@ -1,10 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from '../../img/mainHomeImg.jpg';
 import './Home.css';
 import { Button } from "antd";
 import { connect } from "react-redux";
 
 const Home = (props) => {
+
+    
+    let navigate = useNavigate();
+
+    const navegar = (lugar) => {
+
+        setTimeout(() => {
+            navigate(lugar);
+        }, 200);
+
+    }
 
     if (!props.credentials?.token) {
         return (
@@ -28,9 +40,9 @@ const Home = (props) => {
 
 
                             <div className="enlacesDistribucion">
-                                <div className="cardHomeLogin"><Button type="primary">Login</Button></div>
+                                <div className="cardHomeLogin"><Button type="primary" onClick={() => navegar("/login")}>Login</Button></div>
                                 <div className="cardHomeLogin"><h2 className="OR">OR</h2></div>
-                                <div className="cardHomeLogin"><Button type="primary">Register</Button></div>
+                                <div className="cardHomeLogin"><Button type="primary" onClick={() => navegar("/register")}>Register</Button></div>
                             </div>
 
                         </div>
@@ -48,7 +60,7 @@ const Home = (props) => {
                         <div className="columnBody">
                             <h1 className="h1Home">Bienvenido de nuevo {props.credentials?.usuario.nombre}</h1>
                             <h2 className="h2Home">Consulta nuestras  {
-                            <Button type="primary" className="bottonNovedadeHome" onClick={()=>'/peliculas'}>Novedades</Button>}</h2>
+                            <Button type="primary" className="bottonNovedadeHome" onClick={() => navegar("/peliculas")}>Novedades</Button>}</h2>
                             
                         </div>
                     </div>
