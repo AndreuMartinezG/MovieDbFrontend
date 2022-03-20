@@ -27,7 +27,9 @@ const Series = (props) => {
 
     //useEffect
     useEffect(() => {
-        const endpoint = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+        const endpoint = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=1`
+        
+        // https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1
         traePelis(endpoint);
     }, []);
 
@@ -73,7 +75,9 @@ const Series = (props) => {
     };
 
     const masPelis = async () => {
-        const endpoint = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`
+        const endpoint = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`
+        
+        // https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}
         traePelis(endpoint)
         setLoading(true)
         setLoadingMore(false)
@@ -94,7 +98,7 @@ const Series = (props) => {
                 {/*BODY*/}
 
                 <div className="bodyNovedades">
-                    <Title level={2}>Novedades</Title>
+                    <Title level={2}>Series Populares</Title>
                     <hr />
 
 
