@@ -24,6 +24,7 @@ import Series from './Containers/Series/Series';
 import DetallesSeries from './Containers/DetallesSeries/DetallesSeries';
 import PeliculasTopRated from './Containers/PeliculasTopRated/PeliculasTopRated';
 import PeliculasPopulares from './Containers/PeliculasPopulares/PeliculasPopulares';
+import PeliculasUltimas from './Containers/PeliculasUltimas/PeliculasUltimas';
 
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path='/peliculas' element={<Peliculas /> } />
           <Route path='/peliculasTopRated' element={<PeliculasTopRated /> } />
           <Route path='/peliculasPopulares' element={<PeliculasPopulares /> } />
+          <Route path='/peliculasUltimas' element={<PeliculasUltimas /> } />
           <Route path='/shopcart' element={<ShopCart />} />
           <Route path='/pedidos' element={<Pedidos />} />
           <Route path='/datosPerfil' element={<DatosPerfil />} />
