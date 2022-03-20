@@ -57,7 +57,7 @@ const SideBarAdmin = () => {
                                 Borrar Usuarios
                             </li>
                         </Link>
-                        <Link to="/peliculas" className="link">
+                        <Link to="/borrarPelicula" className="link">
                             <li className="sidebarListItem">
                                 <PermIdentity className="sidebarIcon" />
                                 Borrar Peliculas
