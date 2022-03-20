@@ -40,7 +40,7 @@ const SideBarAdmin = () => {
                                 Peliculas Registradas
                             </li>
                         </Link>
-                        <Link to="/pedidos" className="link">
+                        <Link to="/registredOrders" className="link">
                             <li className="sidebarListItem">
                                 <AttachMoney className="sidebarIcon" />
                                 Pedidos Registrados
