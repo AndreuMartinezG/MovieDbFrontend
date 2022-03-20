@@ -75,7 +75,7 @@ const Peliculas = (props) => {
                 </Link>
             </Menu.Item>
             <Menu.Item key="4" icon={<UserOutlined />}>
-                <Link to="/peliculas" className="link">
+                <Link to="/peliculasPopulares" className="link">
                         Populares
                 </Link>
             </Menu.Item>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { raiz } from '../../utiles';
 import { connect } from 'react-redux';
-import './PeliculasTopRated.css'
+import './PeliculasPopulares.css'
 import { Typography, Row } from 'antd';
 import MainImage from '../../Components/MainImg/MainImage';
 import { API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, IMAGE_SIZE, } from '../../configPeliculas';
@@ -18,7 +18,7 @@ const { Title } = Typography;
 
 
 
-const PeliculasTopRated = (props) => {
+const PeliculasPopulares = (props) => {
 
     let navigate = useNavigate();
 
@@ -31,8 +31,7 @@ const PeliculasTopRated = (props) => {
 
     //useEffect
     useEffect(() => {
-        const endpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
-        //https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1
+        const endpoint = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
         traePelis(endpoint);
     }, []);
 
@@ -107,9 +106,7 @@ const PeliculasTopRated = (props) => {
     };
 
     const masPelis = async () => {
-        const endpoint = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`
-        //https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}
-        
+        const endpoint = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`
         traePelis(endpoint)
         setLoading(true)
         setLoadingMore(false)
@@ -131,7 +128,7 @@ const PeliculasTopRated = (props) => {
 
                 <div className="bodyNovedades">
                     <div className="rowMainPeliculas">
-                        <Title level={2}>Top Rated</Title>
+                        <Title level={2}>Novedades</Title>
                         <div className="spaceWrap">
                             <Space wrap>
                                 <Dropdown overlay={menu}>
@@ -193,4 +190,4 @@ const PeliculasTopRated = (props) => {
 
 export default connect((state) => ({
     credentials: state.credentials
-}))(PeliculasTopRated);
+}))(PeliculasPopulares);

@@ -23,6 +23,7 @@ import BorrarPedidos from './Containers/BorrarPedidos/BorrarPedidos';
 import Series from './Containers/Series/Series';
 import DetallesSeries from './Containers/DetallesSeries/DetallesSeries';
 import PeliculasTopRated from './Containers/PeliculasTopRated/PeliculasTopRated';
+import PeliculasPopulares from './Containers/PeliculasPopulares/PeliculasPopulares';
 
 
 
@@ -42,6 +43,7 @@ function App() {
           <Route path='/admin' element={<Admin/>} />
           <Route path='/peliculas' element={<Peliculas /> } />
           <Route path='/peliculasTopRated' element={<PeliculasTopRated /> } />
+          <Route path='/peliculasPopular' element={<PeliculasPopulares /> } />
           <Route path='/shopcart' element={<ShopCart />} />
           <Route path='/pedidos' element={<Pedidos />} />
           <Route path='/datosPerfil' element={<DatosPerfil />} />
