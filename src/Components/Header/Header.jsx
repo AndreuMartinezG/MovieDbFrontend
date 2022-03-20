@@ -1,12 +1,27 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { LOGOUT, MOVIES_TITLE, EMPTY_CART } from '../../redux/types';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 import { Input, Button } from 'antd';
 import './Header.css'
 import { API_KEY } from '../../configPeliculas';
 import axios from "axios";
+import {
+
+    PermIdentity,
+    Theaters,
+    Tv,
+    AddShoppingCart,
+    PowerSettingsNewOutlined,
+    Settings,
+    HomeRounded,
+    Logout
+
+} from "@material-ui/icons";
+
+//import Login from '@mui/icons-material/Login';
+import Icon from "@ant-design/icons/lib/components/Icon";
 
 
 
@@ -15,11 +30,20 @@ const Header = (props) => {
     let navigate = useNavigate();
 
     const [titulo, setTitulo] = useState("");
+    const [ContadorPedido, setContadorPedido] = useState()
 
+    useEffect(() => {
+        pedidosActivos()
+    }, [])
+
+    useEffect(() => {
+        pedidosActivos()
+    }, [ContadorPedido])
 
     const navegar = (lugar) => {
 
         setTimeout(() => {
+            pedidosActivos()
             navigate(lugar);
         }, 200);
 
@@ -27,13 +51,13 @@ const Header = (props) => {
 
     const logOut = () => {
         //Borrar de RDX las credenciales
-        props.dispatch({type:EMPTY_CART});
-        props.dispatch({type:LOGOUT});
-        
+        props.dispatch({ type: EMPTY_CART });
+        props.dispatch({ type: LOGOUT });
 
-        setTimeout(()=>{
+
+        setTimeout(() => {
             navigate("/");
-        },500);
+        }, 500);
     }
 
 
@@ -43,7 +67,7 @@ const Header = (props) => {
 
 
     const busquedaPorTitulo = async () => {
-    
+
         //Axios que trae resultados....
 
         try {
@@ -52,11 +76,11 @@ const Header = (props) => {
             console.log(resultados)
             //Guardo en redux los resultados de las películas
 
-            props.dispatch({type: MOVIES_TITLE, payload: resultados.data});
+            props.dispatch({ type: MOVIES_TITLE, payload: resultados.data });
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 navigate("/resultadobusqueda");
-            },500);
+            }, 500);
 
 
         } catch (error) {
@@ -64,12 +88,27 @@ const Header = (props) => {
         }
     }
 
+    const pedidosActivos = () => {
+
+        console.log(props.cart.products.length)
+        let count = props.cart.products.length
+        if (count === 0 ){
+            setContadorPedido(count)
+        }else {
+            setContadorPedido(count)
+        }
+
+    }
+
+
+    // RENDER
+
     if (!props.credentials?.token) {
 
         return (
             <div className='designHeader'>
                 <div className="headerSpace linksDesign">
-                    <div className="link" onClick={() => navegar("/")}>Home</div>
+                    <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large"/></div>
                 </div>
 
                 <div className="headerSpace linksAuth">
@@ -84,21 +123,24 @@ const Header = (props) => {
         return (
             <div className='designHeader'>
                 <div className="headerSpace linksDesign">
-                    <div className="link" onClick={() => navegar("/")}>Home</div>
-                    <div className="link" onClick={() => navegar("/peliculas")}>Peliculas</div>
-                    <div className="link" onClick={() => navegar("/")}>Series</div>
-                    <div className="link" onClick={() => navegar("/profile")}>Perfil</div>
-                    <div className="link" onClick={() => navegar("/shopcart")}>Carrito</div>
+                    <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large"/></div>
+                    <div className="link" onClick={() => navegar("/peliculas")}><Theaters /> Peliculas</div>
+                    <div className="link" onClick={() => navegar("/")}><Tv /> Series</div>
+                    <div className="link" onClick={() => navegar("/profile")}><PermIdentity />Perfil</div>
+                    <div className="link topbarIconContainer" onClick={() => navegar("/shopcart")}>
+                        <AddShoppingCart />
+                        {ContadorPedido!==0 ? <span className="topIconBadge">{ContadorPedido}</span> : null}
+                    </div>
                 </div>
                 <div className="headerSpace searchSpace">
                     <Input.Group compact>
-                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev)=>manejador(ev)}/>
-                        <Button onClick={()=>busquedaPorTitulo()} type="primary">Go!</Button>
+                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev) => manejador(ev)} />
+                        <Button onClick={() => busquedaPorTitulo()} type="primary">Go!</Button>
                     </Input.Group>
                 </div>
                 <div className="headerSpace linksAuth">
-                    <div className="link" onClick={() => navegar("/admin")}>Admin</div>
-                    <div className="link" onClick={() => logOut()}>LogOut</div>
+                    <div className="link" onClick={() => navegar("/admin")}><Settings />Admin</div>
+                    <div className="link" onClick={() => logOut()}><PowerSettingsNewOutlined /></div>
                 </div>
             </div>
         )
@@ -108,22 +150,25 @@ const Header = (props) => {
         return (
             <div className='designHeader'>
                 <div className="headerSpace linksDesign">
-                    <div className="link" onClick={() => navegar("/")}>Home</div>
-                    <div className="link" onClick={() => navegar("/peliculas")}>Peliculas</div>
-                    <div className="link" onClick={() => navegar("/")}>Series</div>
-                    <div className="link" onClick={() => navegar("/profile")}>Profile</div>
-                    <div className="link" onClick={() => navegar("/shopcart")}>Carrito</div>
+                    <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large"/></div>
+                    <div className="link" onClick={() => navegar("/peliculas")}><Theaters /> Peliculas</div>
+                    <div className="link" onClick={() => navegar("/")}><Tv /> Series</div>
+                    <div className="link" onClick={() => navegar("/profile")}><PermIdentity />Perfil</div>
+                    <div className="link topbarIconContainer" onClick={() => navegar("/shopcart")}>
+                        <AddShoppingCart />
+                        {ContadorPedido!==0 ? <span className="topIconBadge">{ContadorPedido}</span> : null}
+                    </div>
                 </div>
                 <div className="headerSpace searchSpace">
                     <Input.Group compact>
-                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev)=>manejador(ev)}/>
-                        <Button onClick={()=>busquedaPorTitulo()} type="primary">Go!</Button>
+                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev) => manejador(ev)} />
+                        <Button onClick={() => busquedaPorTitulo()} type="primary">Go!</Button>
                     </Input.Group>
                 </div>
                 <div className="headerSpace linksAuth">
 
-                    <div className="link" onClick={() => logOut()}>LogOut</div>
-                    
+                    <div className="link" onClick={() => logOut()}><PowerSettingsNewOutlined /></div>
+
                 </div>
             </div>
         )
@@ -132,6 +177,8 @@ const Header = (props) => {
 }
 
 
-export default connect((state)=>({
-    credentials: state.credentials
+export default connect((state) => ({
+    cart: state.cart,
+    credentials: state.credentials,
+    search: state.search
 }))(Header);
