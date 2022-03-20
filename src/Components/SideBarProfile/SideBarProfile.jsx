@@ -7,11 +7,12 @@ import {
   PermIdentity,
   Storefront,
   AttachMoney,
-
+  AddShoppingCart,
+  Theaters,
+  Tv,
+  Settings
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const SideBarProfile = () => {
 
 
@@ -34,7 +35,7 @@ const SideBarProfile = () => {
             </Link>
             <Link to="/datosPerfil" className="link">
               <li className="sidebarListItem">
-                <PermIdentity className="sidebarIcon" />
+                <Settings className="sidebarIcon" />
                 Datos Perfil
               </li>
             </Link>
@@ -46,7 +47,7 @@ const SideBarProfile = () => {
             </Link>
             <Link to="/shopcart" className="link">
               <li className="sidebarListItem">
-                <AddShoppingCartIcon className="sidebarIcon" />
+                <AddShoppingCart className="sidebarIcon" />
                 Carrito
               </li>
             </Link>
@@ -57,13 +58,13 @@ const SideBarProfile = () => {
           <ul className="sidebarList">
             <Link to="/peliculas" className="link">
               <li className="sidebarListItem">
-                <PermIdentity className="sidebarIcon" />
+                <Theaters className="sidebarIcon" />
                 Peliculas
               </li>
             </Link>
             <Link to="/series" className="link">
               <li className="sidebarListItem">
-                <Storefront className="sidebarIcon" />
+                <Tv className="sidebarIcon" />
                 Series
               </li>
             </Link>

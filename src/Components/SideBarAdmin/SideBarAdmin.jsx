@@ -6,10 +6,12 @@ import {
     PermIdentity,
     Storefront,
     AttachMoney,
+    Info,
+    Theaters,
+    Tv,
 
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-
 
 const SideBarAdmin = () => {
 
@@ -24,7 +26,7 @@ const SideBarAdmin = () => {
 
                         <Link to="/admin" className="link">
                             <li className="sidebarListItem">
-                                <PermIdentity className="sidebarIcon" />
+                                <Info className="sidebarIcon" />
                                 Area Admin
                             </li>
                         </Link>
@@ -36,7 +38,7 @@ const SideBarAdmin = () => {
                         </Link>
                         <Link to="/registredFilms" className="link">
                             <li className="sidebarListItem">
-                                <Storefront className="sidebarIcon" />
+                                <Theaters className="sidebarIcon" />
                                 Peliculas Registradas
                             </li>
                         </Link>
@@ -59,7 +61,7 @@ const SideBarAdmin = () => {
                         </Link>
                         <Link to="/borrarPelicula" className="link">
                             <li className="sidebarListItem">
-                                <Storefront className="sidebarIcon" />
+                                <Theaters className="sidebarIcon" />
                                 Borrar Peliculas
                             </li>
                         </Link>
