@@ -106,7 +106,8 @@ const Header = (props) => {
 
         return (
             <div className='designHeader'>
-                <div className="headerSpace linksDesign logo">
+                <div className="headerSpace linksDesign">
+                    
                 </div>
                 <div className="spaceHeader linksDesign heigth">
                     <div className="link " onClick={() => navegar("/")}><HomeRounded fontSize="large" /></div>
