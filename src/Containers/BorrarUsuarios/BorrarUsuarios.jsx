@@ -87,7 +87,7 @@ const BorrarUsuarios = (props) => {
             <SideBarAdmin />
             <div className="userUpdate2 widthPedidos">
                 <div className="widgetLg">
-                    <h1>Todos los Pedidos</h1>
+                    <h1>Borrar Usuarios</h1>
                     <table className="widgetLgTable">
                         <thead>
                             <tr className="widgetLgTr">
