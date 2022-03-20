@@ -4,7 +4,7 @@ import axios from 'axios';
 import { raiz } from '../../utiles';
 import { connect } from 'react-redux';
 import './Peliculas.css'
-import { Typography, Row } from 'antd';
+import { Typography, Row, Button } from 'antd';
 import MainImage from '../../Components/MainImg/MainImage';
 import { API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, IMAGE_SIZE, } from '../../configPeliculas';
 import GridCard from '../../Components/GridCard/GridCard';
@@ -123,7 +123,7 @@ const Peliculas = (props) => {
                 
                 <div className="botonMasNovedades">
                     
-                    <button className='searchMore' onClick={() => masPelis()}>{LoadingMore && "LOAD MORE"}{Loading && "Loading..."}</button>
+                    <Button type="primary" onClick={() => masPelis()} >{LoadingMore && "LOAD MORE"}{Loading && `Loading..`}</Button>
                 </div>
             </div>
         )
