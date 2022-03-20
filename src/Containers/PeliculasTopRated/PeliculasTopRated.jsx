@@ -11,6 +11,7 @@ import GridCard from '../../Components/GridCard/GridCard';
 import 'antd/dist/antd.css';
 import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
+import { Theaters } from "@material-ui/icons";
 
 import { Link } from "react-router-dom";
 const { Title } = Typography;
@@ -58,22 +59,22 @@ const PeliculasTopRated = (props) => {
 
     const menu = (
         <Menu>
-            <Menu.Item key="1" icon={<UserOutlined />}>
+            <Menu.Item key="1" icon={<Theaters />}>
                 <Link to="/peliculas" className="link">
                         Novedades
                 </Link>
             </Menu.Item>
-            <Menu.Item key="2" icon={<UserOutlined />}>
+            <Menu.Item key="2" icon={<Theaters />}>
                 <Link to="/peliculasTopRated" className="link">
                         Top Rated
                 </Link>
             </Menu.Item>
-            <Menu.Item key="3" icon={<UserOutlined />}>
+            <Menu.Item key="3" icon={<Theaters />}>
                 <Link to="/peliculasUltimas" className="link">
                         En Cines
                 </Link>
             </Menu.Item>
-            <Menu.Item key="4" icon={<UserOutlined />}>
+            <Menu.Item key="4" icon={<Theaters />}>
                 <Link to="/peliculasPopulares" className="link">
                         Populares
                 </Link>
