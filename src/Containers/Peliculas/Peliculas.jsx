@@ -55,7 +55,6 @@ const Peliculas = (props) => {
 
     function handleMenuClick(e) {
         message.info('Click on menu item.');
-        console.log('click', e);
     }
 
     const menu = (
