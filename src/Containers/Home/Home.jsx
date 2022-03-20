@@ -1,12 +1,12 @@
 import React from "react";
-
+import logo from '../../img/mainHomeImg.jpg';
 import './Home.css';
 
 const Home = () => {
 
     return (
         <div className="designHome">
-            Soy Home    
+            <img src={logo} alt="Logo" />;   
         </div>
     )
 };

@@ -10,7 +10,7 @@
     color: lightblue;
 }
 
-.headerSpace {
+.headerSpace, .spaceHeader {
     width: 33vw;
     height: 4em;
 
@@ -69,4 +69,19 @@
     align-items: center;
     justify-content: center;
     font-size: 10px;
+}
+
+.heigth {
+    height: 20em;
+    display: flex;
+    margin-right: 3em;
+    box-sizing: content-box;
+    margin-left: 1em;
+}
+
+.logo {
+    background-image: url("../../img/prime.jpg");
+    background-size: cover;
+    height: 4em;
+    width: 10em;
 }

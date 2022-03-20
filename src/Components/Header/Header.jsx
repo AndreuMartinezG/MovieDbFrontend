@@ -16,12 +16,12 @@ import {
     PowerSettingsNewOutlined,
     Settings,
     HomeRounded,
-    Logout
 
 } from "@material-ui/icons";
 
-//import Login from '@mui/icons-material/Login';
-import Icon from "@ant-design/icons/lib/components/Icon";
+import Login from '@mui/icons-material/Login';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+import logo from '../../img/breakingNew.jpg'
 
 
 
@@ -90,11 +90,10 @@ const Header = (props) => {
 
     const pedidosActivos = () => {
 
-        console.log(props.cart.products.length)
         let count = props.cart.products.length
-        if (count === 0 ){
+        if (count === 0) {
             setContadorPedido(count)
-        }else {
+        } else {
             setContadorPedido(count)
         }
 
@@ -107,13 +106,14 @@ const Header = (props) => {
 
         return (
             <div className='designHeader'>
-                <div className="headerSpace linksDesign">
-                    <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large"/></div>
+                <div className="headerSpace linksDesign logo">
                 </div>
-
+                <div className="spaceHeader linksDesign heigth">
+                    <div className="link " onClick={() => navegar("/")}><HomeRounded fontSize="large" /></div>
+                </div>
                 <div className="headerSpace linksAuth">
-                    <div className="link" onClick={() => navegar("/login")}>Login</div>
-                    <div className="link" onClick={() => navegar("/register")}>Register</div>
+                    <div className="link" onClick={() => navegar("/login")}><Login /> Login</div>
+                    <div className="link" onClick={() => navegar("/register")}><AppRegistrationIcon /> Register</div>
                 </div>
             </div>
         )
@@ -123,13 +123,13 @@ const Header = (props) => {
         return (
             <div className='designHeader'>
                 <div className="headerSpace linksDesign">
-                    <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large"/></div>
+                    <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large" /></div>
                     <div className="link" onClick={() => navegar("/peliculas")}><Theaters /> Peliculas</div>
                     <div className="link" onClick={() => navegar("/")}><Tv /> Series</div>
                     <div className="link" onClick={() => navegar("/profile")}><PermIdentity />Perfil</div>
                     <div className="link topbarIconContainer" onClick={() => navegar("/shopcart")}>
                         <AddShoppingCart />
-                        {ContadorPedido!==0 ? <span className="topIconBadge">{ContadorPedido}</span> : null}
+                        {ContadorPedido !== 0 ? <span className="topIconBadge">{ContadorPedido}</span> : null}
                     </div>
                 </div>
                 <div className="headerSpace searchSpace">
@@ -150,13 +150,13 @@ const Header = (props) => {
         return (
             <div className='designHeader'>
                 <div className="headerSpace linksDesign">
-                    <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large"/></div>
+                    <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large" /></div>
                     <div className="link" onClick={() => navegar("/peliculas")}><Theaters /> Peliculas</div>
                     <div className="link" onClick={() => navegar("/")}><Tv /> Series</div>
                     <div className="link" onClick={() => navegar("/profile")}><PermIdentity />Perfil</div>
                     <div className="link topbarIconContainer" onClick={() => navegar("/shopcart")}>
                         <AddShoppingCart />
-                        {ContadorPedido!==0 ? <span className="topIconBadge">{ContadorPedido}</span> : null}
+                        {ContadorPedido !== 0 ? <span className="topIconBadge">{ContadorPedido}</span> : null}
                     </div>
                 </div>
                 <div className="headerSpace searchSpace">
