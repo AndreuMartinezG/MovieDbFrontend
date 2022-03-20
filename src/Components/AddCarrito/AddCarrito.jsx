@@ -29,7 +29,6 @@ const AddCarrito = (props) => {
 
             if (item.id === props.search.id){
                 setAddedCart(true)
-                console.log("He entrado en el primer if")
             }
         })
     }

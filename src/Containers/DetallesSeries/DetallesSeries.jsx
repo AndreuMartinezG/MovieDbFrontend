@@ -17,7 +17,6 @@ import AddCarrito from '../../Components/AddCarrito/AddCarrito';
 
 
 const DetallesSeries = (props) => {
-    console.log(props)
     let navigate = useNavigate();
     const serieId = props.search.id
 
@@ -28,10 +27,7 @@ const DetallesSeries = (props) => {
 
     //Use EFECT
     useEffect(() => {
-        console.log(props)
-        // if (props.search?.original_title === undefined) {
-        //     navigate("/");
-        // }
+
 
         getDetallesPelicula()
     }, []);
@@ -50,7 +46,6 @@ const DetallesSeries = (props) => {
 
             //let res = await axios.get(endpointForCasts);
             let resVideo = await axios.get(detallesVideo)
-            console.log(resVideo)
             //setCasts(res.data.cast)
             setDataFilm(resVideo.data)
 

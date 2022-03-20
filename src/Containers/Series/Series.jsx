@@ -59,7 +59,6 @@ const Series = (props) => {
         try {
 
             let res = await axios.get(path, config);
-            console.log(res)
             setTimeout(() => {
                 //console.log(res.data.results + "estoy aqui")
                 setFilms([...films, ...res.data.results]);
@@ -102,7 +101,6 @@ const Series = (props) => {
 
 
                     {/* GRID CARDS */}
-                    {console.log(films)}
                     <Row gutter={[16, 16]}>
                         {
                             films.map((pelicula, index) => {

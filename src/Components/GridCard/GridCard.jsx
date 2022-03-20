@@ -13,7 +13,6 @@ function GridCards(props) {
 
     const escogePelicula = (pelicula) => {
 
-        console.log(pelicula);
         //Guardamos la pelicula escogida en redux
         props.dispatch({ type: MOVIE_DETAIL, payload: pelicula });
 

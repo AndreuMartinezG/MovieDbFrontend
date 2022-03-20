@@ -128,10 +128,10 @@ const ShopCart = (props) => {
 
         return <tr key={index}>
 
-            <Popover content={content} title={`${value.title}`}>
-                <td>{value.title}</td>
+            <Popover content={content} title={`${value.title || value.name}`}>
+                <td>{value.title || value.name}</td>
             </Popover>
-            <td>{value.release_date}</td>
+            <td>{value.release_date || value.first_air_date}</td>
             <td><Button key={value.id} onClick={() => onClickDelete(value)} type="primary" danger>
                 remove
             </Button></td>
