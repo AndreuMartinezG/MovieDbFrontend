@@ -53,12 +53,10 @@ const Peliculas = (props) => {
 
     // FUNCIONES LOCALES
 
-    function handleMenuClick(e) {
-        message.info('Click on menu item.');
-    }
+
 
     const menu = (
-        <Menu onClick={handleMenuClick}>
+        <Menu>
             <Menu.Item key="1" icon={<UserOutlined />}>
                 <Link to="/peliculas" className="link">
                         Novedades

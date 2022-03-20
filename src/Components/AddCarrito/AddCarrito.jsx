@@ -40,11 +40,13 @@ const AddCarrito = (props) => {
             props.dispatch({type: ADD_CART, payload: props.movieInfo});
             
             setAddedCart(true)
+            window.location.reload()
             
         } else {
             //si que tenemos el item añadido
             props.dispatch({type: REMOVE_CART, payload: props.movieInfo});
             setAddedCart(false)
+            window.location.reload()
         }
 
     }
