@@ -1,6 +1,7 @@
 .designFooter {
 
     height: 4em;
+    width: 100vw;
     background-color: #1A232E;
     display: flex;
     align-items: center;

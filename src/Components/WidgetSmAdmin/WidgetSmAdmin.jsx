@@ -45,10 +45,9 @@ const WidgetSmAdmin = (props) => {
           />
           <div className="widgetSmUser">
             <span className="widgetSmUsername">{value.nombre} {value.apellido}</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
+            <span className="widgetSmUserTitle">Web Developer</span>
           </div>
           <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
             New
           </button>
         </li>
