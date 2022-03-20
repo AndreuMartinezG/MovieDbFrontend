@@ -73,7 +73,7 @@ const PeliculasPopulares = (props) => {
             </Menu.Item>
             <Menu.Item key="3" icon={<UserOutlined />}>
                 <Link to="/peliculasUltimas" className="link">
-                        Ultimas
+                        En Cines
                 </Link>
             </Menu.Item>
             <Menu.Item key="4" icon={<UserOutlined />}>
