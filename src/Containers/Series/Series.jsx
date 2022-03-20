@@ -28,7 +28,6 @@ const Series = (props) => {
     //useEffect
     useEffect(() => {
         const endpoint = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=1`
-        
         // https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1
         traePelis(endpoint);
     }, []);
@@ -60,7 +59,7 @@ const Series = (props) => {
         try {
 
             let res = await axios.get(path, config);
-
+            console.log(res)
             setTimeout(() => {
                 //console.log(res.data.results + "estoy aqui")
                 setFilms([...films, ...res.data.results]);
@@ -91,7 +90,7 @@ const Series = (props) => {
                 {/*APARTADO PARA LA IMAGEN DE CABECERA */}
                 <MainImage
                     image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${films[0].backdrop_path}`}
-                    title={films[0].original_title}
+                    title={films[0].name}
                     text={films[0].overview}
                 />
 
@@ -103,7 +102,7 @@ const Series = (props) => {
 
 
                     {/* GRID CARDS */}
-
+                    {console.log(films)}
                     <Row gutter={[16, 16]}>
                         {
                             films.map((pelicula, index) => {
@@ -114,7 +113,7 @@ const Series = (props) => {
                                             objetoPeli={pelicula}
                                             image={pelicula.poster_path ? `${raiz + pelicula.poster_path}` : null}
                                             movieId={pelicula.id}
-                                            movieName={pelicula.title}
+                                            movieName={pelicula.name}
                                             keyPeli={pelicula.id}
                                         />
                                     </React.Fragment>

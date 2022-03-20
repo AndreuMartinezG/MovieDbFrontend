@@ -21,6 +21,7 @@ import BorrarUsuarios from './Containers/BorrarUsuarios/BorrarUsuarios';
 import BorrarPelicula from './Containers/BorrarPelicula/BorrarPelicula';
 import BorrarPedidos from './Containers/BorrarPedidos/BorrarPedidos';
 import Series from './Containers/Series/Series';
+import DetallesSeries from './Containers/DetallesSeries/DetallesSeries';
 
 
 
@@ -52,6 +53,7 @@ function App() {
           <Route path='/borrarPelicula' element={<BorrarPelicula />} />
           <Route path='/borrarPedidos' element={<BorrarPedidos />} />
           <Route path='/series' element={<Series />} />
+          <Route path='/detallesSeries/:serieId' element={<DetallesSeries />} />
         </Routes>
 
         <Footer />
