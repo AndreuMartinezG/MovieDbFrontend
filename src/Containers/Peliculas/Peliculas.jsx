@@ -58,7 +58,6 @@ const Peliculas = (props) => {
         try {
 
             let res = await axios.get(path, config);
-            console.log(res.data.page)
 
             setTimeout(() => {
                 //console.log(res.data.results + "estoy aqui")

@@ -15,7 +15,6 @@ const AddCarrito = (props) => {
 
     useEffect(() => {
         //UseEffect equivalente a componentDidMount (montado)
-        console.log(props, "Estoy en el primer use efect")
         comprobarCarrito()
     }, [])
 
@@ -42,12 +41,9 @@ const AddCarrito = (props) => {
             props.dispatch({type: ADD_CART, payload: props.movieInfo});
             
             setAddedCart(true)
-
-            console.log("Estoy añadiendo")
             
         } else {
             //si que tenemos el item añadido
-            console.log("Estoy borrando")
             props.dispatch({type: REMOVE_CART, payload: props.movieInfo});
             setAddedCart(false)
         }

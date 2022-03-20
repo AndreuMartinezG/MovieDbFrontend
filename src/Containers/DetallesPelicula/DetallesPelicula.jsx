@@ -89,7 +89,6 @@ const DetallesPelicula = (props) => {
 
                 {/* Movie Info */}
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    {console.log(props)}
                     <AddCarrito movieInfo={props.search} movieId={props.search.id} userFrom={props.credentials.usuario.id} />
                 </div>
                 <MovieInfo movie={props.search} detalles={DataFilm}/>

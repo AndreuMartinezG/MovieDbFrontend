@@ -54,7 +54,6 @@ const BorrarPelicula = (props) => {
         try {
 
             let resultado = await axios.get(`https://movie-db-geekshubs.herokuapp.com/peliculas`, config);
-            console.log(resultado.data)
             setPelicula(resultado.data)
         } catch (error) {
             console.log(error)
