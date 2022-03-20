@@ -19,6 +19,7 @@ import RegistredFilms from './Containers/RegistredFilms/RegistredFilms';
 import RegistredOrders from './Containers/RegistredOrders/RegistredOrders';
 import BorrarUsuarios from './Containers/BorrarUsuarios/BorrarUsuarios';
 import BorrarPelicula from './Containers/BorrarPelicula/BorrarPelicula';
+import BorrarPedidos from './Containers/BorrarPedidos/BorrarPedidos';
 
 
 
@@ -48,6 +49,7 @@ function App() {
           <Route path='/registredOrders' element={<RegistredOrders />} />
           <Route path='/borrarUsuarios' element={<BorrarUsuarios />} />
           <Route path='/borrarPelicula' element={<BorrarPelicula />} />
+          <Route path='/borrarPedidos' element={<BorrarPedidos />} />
         </Routes>
 
         <Footer />

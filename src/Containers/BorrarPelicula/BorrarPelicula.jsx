@@ -59,6 +59,8 @@ const BorrarPelicula = (props) => {
             console.log(error)
         }
     }
+
+    
     const renderPelicula = Pelicula.map((value, index) => {
 
         return <tr key={index}>

@@ -11,7 +11,7 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
-
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const SideBarProfile = () => {
 
 
@@ -46,7 +46,7 @@ const SideBarProfile = () => {
             </Link>
             <Link to="/shopcart" className="link">
               <li className="sidebarListItem">
-                <Storefront className="sidebarIcon" />
+                <AddShoppingCartIcon className="sidebarIcon" />
                 Carrito
               </li>
             </Link>

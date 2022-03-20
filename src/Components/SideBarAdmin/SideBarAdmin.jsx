@@ -59,20 +59,14 @@ const SideBarAdmin = () => {
                         </Link>
                         <Link to="/borrarPelicula" className="link">
                             <li className="sidebarListItem">
-                                <PermIdentity className="sidebarIcon" />
+                                <Storefront className="sidebarIcon" />
                                 Borrar Peliculas
                             </li>
                         </Link>
-                        <Link to="/peliculas" className="link">
+                        <Link to="/borrarPedidos" className="link">
                             <li className="sidebarListItem">
-                                <PermIdentity className="sidebarIcon" />
+                                <AttachMoney className="sidebarIcon" />
                                 Borrar Pedidos
-                            </li>
-                        </Link>
-                        <Link to="/series" className="link">
-                            <li className="sidebarListItem">
-                                <Storefront className="sidebarIcon" />
-                                Series
                             </li>
                         </Link>
                     </ul>
