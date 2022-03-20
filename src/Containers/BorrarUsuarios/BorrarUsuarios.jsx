@@ -14,7 +14,6 @@ const BorrarUsuarios = (props) => {
 
 
     const [Usuario, setUsuario] = useState([])
-    const [ControlUsuario, setControlUsuario] = useState(true)
 
     useEffect(() => {
         traerUsuarios()
@@ -27,28 +26,24 @@ const BorrarUsuarios = (props) => {
 
     })
 
-    useEffect(() => {
 
-    }, [ControlUsuario])
-
-
-
-    const onClickDelete = async(value) => {
+    const onClickDelete = async (value) => {
         let config = {
             headers: { Authorization: `Bearer ${props.credentials.token}` }
         };
 
         try {
             console.log(value, "SOY VALUEEE")
-            //let resultado = await axios.delete(`https://movie-db-geekshubs.herokuapp.com/usuarios/${value.id}`, config);
+            let resultado = await axios.delete(`https://movie-db-geekshubs.herokuapp.com/usuarios/${value.id}`, config);
 
-            //console.log(resultado, "SOY Resultado de DELTEEEEEEE")
+            console.log(resultado, "SOY Resultado de DELTEEEEEEE")
+            alert("Usuario Eliminado con exito")
+            window.location.reload()
 
         } catch (error) {
             console.log(error)
         }
-        // setControlUsuario(false)
-        // window.location.reload()
+
     }
 
 
@@ -62,7 +57,6 @@ const BorrarUsuarios = (props) => {
 
             let resultado = await axios.get(`https://movie-db-geekshubs.herokuapp.com/usuarios`, config);
             setUsuario(resultado.data)
-            console.log(Usuario, "SOY USUARIOOOOOOOOOOOOO")
 
         } catch (error) {
             console.log(error)
@@ -72,10 +66,10 @@ const BorrarUsuarios = (props) => {
 
         return <tr key={index}>
 
-            
+
 
             <td>{value.nombre} {value.apellido}</td>
-            
+
             <td>{value.email}</td>
             <td>{value.telefono}</td>
             <td><Button key={value.id} onClick={() => onClickDelete(value)} type="primary" danger>
