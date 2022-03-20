@@ -51,7 +51,7 @@ const SideBarAdmin = () => {
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Actions</h3>
                     <ul className="sidebarList">
-                        <Link to="/peliculas" className="link">
+                        <Link to="/borrarUsuarios" className="link">
                             <li className="sidebarListItem">
                                 <PermIdentity className="sidebarIcon" />
                                 Borrar Usuarios
