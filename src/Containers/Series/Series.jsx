@@ -109,10 +109,10 @@ const Series = (props) => {
 
                                 return (
                                     <React.Fragment key={index}>
-                                        <GridCard
+                                        <GridCard serie
                                             objetoPeli={pelicula}
                                             image={pelicula.poster_path ? `${raiz + pelicula.poster_path}` : null}
-                                            movieId={pelicula.id}
+                                            serieId={pelicula.id}
                                             movieName={pelicula.name}
                                             keyPeli={pelicula.id}
                                         />
