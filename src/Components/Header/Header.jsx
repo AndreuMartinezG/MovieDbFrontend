@@ -126,7 +126,7 @@ const Header = (props) => {
                 <div className="headerSpace linksDesign">
                     <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large" /></div>
                     <div className="link" onClick={() => navegar("/peliculas")}><Theaters /> Peliculas</div>
-                    <div className="link" onClick={() => navegar("/")}><Tv /> Series</div>
+                    <div className="link" onClick={() => navegar("/series")}><Tv /> Series</div>
                     <div className="link" onClick={() => navegar("/profile")}><PermIdentity />Perfil</div>
                     <div className="link topbarIconContainer" onClick={() => navegar("/shopcart")}>
                         <AddShoppingCart />
@@ -153,7 +153,7 @@ const Header = (props) => {
                 <div className="headerSpace linksDesign">
                     <div className="link" onClick={() => navegar("/")}><HomeRounded fontSize="large" /></div>
                     <div className="link" onClick={() => navegar("/peliculas")}><Theaters /> Peliculas</div>
-                    <div className="link" onClick={() => navegar("/")}><Tv /> Series</div>
+                    <div className="link" onClick={() => navegar("/series")}><Tv /> Series</div>
                     <div className="link" onClick={() => navegar("/profile")}><PermIdentity />Perfil</div>
                     <div className="link topbarIconContainer" onClick={() => navegar("/shopcart")}>
                         <AddShoppingCart />
