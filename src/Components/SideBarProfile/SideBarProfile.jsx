@@ -3,9 +3,6 @@ import React, { useState } from 'react';
 
 import "./SideBarProfile.css";
 import {
-
-  PermIdentity,
-  Storefront,
   AttachMoney,
   AddShoppingCart,
   Theaters,
@@ -15,8 +12,6 @@ import {
 import { Link } from "react-router-dom";
 const SideBarProfile = () => {
 
-
-  const [opened, setOpened] = useState(false);
 
 
 

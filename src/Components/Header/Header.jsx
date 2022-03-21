@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { LOGOUT, MOVIES_TITLE, EMPTY_CART } from '../../redux/types';
 import { connect } from 'react-redux';
-import 'antd/dist/antd.css';
 import { Input, Button } from 'antd';
 import './Header.css'
 import { API_KEY } from '../../configPeliculas';
@@ -21,7 +20,6 @@ import {
 
 import Login from '@mui/icons-material/Login';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-import logo from '../../img/breakingNew.jpg'
 
 
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import logo from '../../img/mainHomeImg.jpg';
 import './Home.css';
 import { Button } from "antd";
 import { connect } from "react-redux";
