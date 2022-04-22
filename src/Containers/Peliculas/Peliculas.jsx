@@ -45,6 +45,9 @@ const Peliculas = (props) => {
         //espera a cambio en el HOOK de films
     }, [films]);
 
+
+    //FUNCIONES
+
     useEffect(() => {
 
     }, [CurrentPage]);
