@@ -7,12 +7,12 @@ import './Peliculas.css'
 import { Typography, Row } from 'antd';
 import MainImage from '../../Components/MainImg/MainImage';
 import { API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, IMAGE_SIZE, } from '../../configPeliculas';
-import GridCard from '../../Components/GridCard/GridCard';
-import 'antd/dist/antd.css';
+import GridCard from '../../Components/GridCard/GridCard';  
 import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import { Theaters } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+
 const { Title } = Typography;
 
 

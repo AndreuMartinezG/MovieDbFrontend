@@ -6,11 +6,10 @@ import MainImage from '../../Components/MainImg/MainImage';
 import MovieInfo from '../../Components/MovieInfo/MovieInfo';
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE } from '../../configPeliculas';
 //import Rent from '../../Components/Rent/Rent';
-import { raiz } from '../../utiles';
 import GridCard from '../../Components/GridCard/GridCard';
 import Youtube from 'react-youtube'
 
-import { List, Avatar, Row, Col, Button } from 'antd';
+import { Row, Button } from 'antd';
 
 import './DetallesPelicula.css'
 import AddCarrito from '../../Components/AddCarrito/AddCarrito';
